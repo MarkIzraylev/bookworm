@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="user83_dbModelStoreContainer" CdmEntityContainer="user83_dbEntities">
+    <EntitySetMapping Name="bs_author">
+      <EntityTypeMapping TypeName="user83_dbModel.bs_author">
+        <MappingFragment StoreEntitySet="bs_author">
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bs_edition">
+      <EntityTypeMapping TypeName="user83_dbModel.bs_edition">
+        <MappingFragment StoreEntitySet="bs_edition">
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="cover" ColumnName="cover" />
+          <ScalarProperty Name="text" ColumnName="text" />
+          <ScalarProperty Name="release_date" ColumnName="release_date" />
+          <ScalarProperty Name="id_release_form" ColumnName="id_release_form" />
+          <ScalarProperty Name="id_author" ColumnName="id_author" />
+          <ScalarProperty Name="id_publisher" ColumnName="id_publisher" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bs_order">
+      <EntityTypeMapping TypeName="user83_dbModel.bs_order">
+        <MappingFragment StoreEntitySet="bs_order">
+          <ScalarProperty Name="id_order_status" ColumnName="id_order_status" />
+          <ScalarProperty Name="order_date" ColumnName="order_date" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bs_order_status">
+      <EntityTypeMapping TypeName="user83_dbModel.bs_order_status">
+        <MappingFragment StoreEntitySet="bs_order_status">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bs_publisher">
+      <EntityTypeMapping TypeName="user83_dbModel.bs_publisher">
+        <MappingFragment StoreEntitySet="bs_publisher">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bs_release_form">
+      <EntityTypeMapping TypeName="user83_dbModel.bs_release_form">
+        <MappingFragment StoreEntitySet="bs_release_form">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bs_role">
+      <EntityTypeMapping TypeName="user83_dbModel.bs_role">
+        <MappingFragment StoreEntitySet="bs_role">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bs_user">
+      <EntityTypeMapping TypeName="user83_dbModel.bs_user">
+        <MappingFragment StoreEntitySet="bs_user">
+          <ScalarProperty Name="background_color" ColumnName="background_color" />
+          <ScalarProperty Name="font_color" ColumnName="font_color" />
+          <ScalarProperty Name="font_size" ColumnName="font_size" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="passport" ColumnName="passport" />
+          <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+          <ScalarProperty Name="sign_up_date" ColumnName="sign_up_date" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="id_role" ColumnName="id_role" />
+          <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bs_user_edition">
+      <EntityTypeMapping TypeName="user83_dbModel.bs_user_edition">
+        <MappingFragment StoreEntitySet="bs_user_edition">
+          <ScalarProperty Name="mark" ColumnName="mark" />
+          <ScalarProperty Name="review" ColumnName="review" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="is_on_bookshelf" ColumnName="is_on_bookshelf" />
+          <ScalarProperty Name="current_page" ColumnName="current_page" />
+          <ScalarProperty Name="id_edition" ColumnName="id_edition" />
+          <ScalarProperty Name="id_order" ColumnName="id_order" />
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

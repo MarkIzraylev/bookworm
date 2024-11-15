@@ -1,0 +1,21 @@
+﻿<Page x:Class="book_store.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:book_store"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      FontFamily="Georgia"
+      FontSize="14"
+      Title="главная">
+
+    <Grid>
+        <Label Content="главная" Margin="15,0" VerticalAlignment="Top" Foreground="#FF645549"/>
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Image Width="300" Height="300" Source="education.png" Margin="0,0,30,0" />
+            <TextBlock Width="310" VerticalAlignment="Center" TextWrapping="Wrap" Text="            Прикасаясь к великим страницам, читатель кистью расписывается на полотне повседневности, концептами, высеченными на скрижалях, дополняет свой умозрительный ландшафт. Книжный магазин «Bookworm» намерен способствовать этому процессу, предоставляя доступ к широкому корпусу произведений как онлайн, так и офлайн." Foreground="#FF2B241F"/>
+        </StackPanel>
+    </Grid>
+</Page>

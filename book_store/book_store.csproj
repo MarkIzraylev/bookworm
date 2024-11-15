@@ -1,0 +1,1760 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{410B60F0-7B81-4ACD-AC3A-271E8B0F9F2C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>book_store</RootNamespace>
+    <AssemblyName>book_store</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="BookCard.xaml.cs">
+      <DependentUpon>BookCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BookReaderPage.xaml.cs">
+      <DependentUpon>BookReaderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BookSearchPage.xaml.cs">
+      <DependentUpon>BookSearchPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BookStoreDataBase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookStoreDataBase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BookStoreDataBase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookStoreDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BookStoreDataBase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookStoreDataBase.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="bs_author.cs">
+      <DependentUpon>BookStoreDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bs_edition.cs">
+      <DependentUpon>BookStoreDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bs_order.cs">
+      <DependentUpon>BookStoreDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bs_order_status.cs">
+      <DependentUpon>BookStoreDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bs_publisher.cs">
+      <DependentUpon>BookStoreDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bs_release_form.cs">
+      <DependentUpon>BookStoreDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bs_role.cs">
+      <DependentUpon>BookStoreDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bs_user.cs">
+      <DependentUpon>BookStoreDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bs_user_edition.cs">
+      <DependentUpon>BookStoreDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CashierMenuPage.xaml.cs">
+      <DependentUpon>CashierMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ClientMenuPage.xaml.cs">
+      <DependentUpon>ClientMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HomeHeaderPage.xaml.cs">
+      <DependentUpon>HomeHeaderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrderCheckPage.xaml.cs">
+      <DependentUpon>OrderCheckPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SignInPage.xaml.cs">
+      <DependentUpon>SignInPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SignUpPage.xaml.cs">
+      <DependentUpon>SignUpPage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="BookCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BookReaderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BookSearchPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CashierMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ClientMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HomeHeaderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="OrderCheckPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SignInPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SignUpPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="BookStoreDataBase.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BookStoreDataBase.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="BookStoreDataBase.edmx.diagram">
+      <DependentUpon>BookStoreDataBase.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Bliss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="101.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="101.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="book_stack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="education.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="done.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BookStoreDataBase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>BookStoreDataBase.Context.cs</LastGenOutput>
+      <DependentUpon>BookStoreDataBase.edmx</DependentUpon>
+    </Content>
+    <Content Include="BookStoreDataBase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BookStoreDataBase.edmx</DependentUpon>
+      <LastGenOutput>BookStoreDataBase.cs</LastGenOutput>
+    </Content>
+    <Resource Include="img\books\PrideAndPrejudiceTitlePage.jpg" />
+    <Resource Include="img\books\TDW.jpg" />
+    <Resource Include="img\books\Wild_Geese.jpg" />
+    <Resource Include="img\authors\Mary_Oliver.jpg" />
+    <Resource Include="img\authors\ТолстаяТатьянаНикитична.jpg" />
+    <Resource Include="img\Bliss.png" />
+    <Resource Include="img\books\sleepwalker.jpg" />
+    <Resource Include="img\book_stack.png" />
+    <Resource Include="img\done.png" />
+    <Resource Include="img\education.png" />
+    <Resource Include="img\filter.png" />
+    <Resource Include="img\ICON\10.ico" />
+    <Resource Include="img\ICON\100.ico" />
+    <Resource Include="img\ICON\1000.ico" />
+    <Resource Include="img\ICON\1001.ico" />
+    <Resource Include="img\ICON\1002.ico" />
+    <Resource Include="img\ICON\1003.ico" />
+    <Resource Include="img\ICON\1004.ico" />
+    <Resource Include="img\ICON\1005.ico" />
+    <Resource Include="img\ICON\1006.ico" />
+    <Resource Include="img\ICON\1007.ico" />
+    <Resource Include="img\ICON\1008.ico" />
+    <Resource Include="img\ICON\1009.ico" />
+    <Resource Include="img\ICON\101.ico" />
+    <Resource Include="img\ICON\1010.ico" />
+    <Resource Include="img\ICON\1011.ico" />
+    <Resource Include="img\ICON\1012.ico" />
+    <Resource Include="img\ICON\1013.ico" />
+    <Resource Include="img\ICON\1014.ico" />
+    <Resource Include="img\ICON\1015.ico" />
+    <Resource Include="img\ICON\1016.ico" />
+    <Resource Include="img\ICON\1017.ico" />
+    <Resource Include="img\ICON\1018.ico" />
+    <Resource Include="img\ICON\1019.ico" />
+    <Resource Include="img\ICON\102.ico" />
+    <Resource Include="img\ICON\1020.ico" />
+    <Resource Include="img\ICON\1021.ico" />
+    <Resource Include="img\ICON\1022.ico" />
+    <Resource Include="img\ICON\1023.ico" />
+    <Resource Include="img\ICON\1024.ico" />
+    <Resource Include="img\ICON\1025.ico" />
+    <Resource Include="img\ICON\1026.ico" />
+    <Resource Include="img\ICON\1027.ico" />
+    <Resource Include="img\ICON\1028.ico" />
+    <Resource Include="img\ICON\1029.ico" />
+    <Resource Include="img\ICON\103.ico" />
+    <Resource Include="img\ICON\1030.ico" />
+    <Resource Include="img\ICON\1031.ico" />
+    <Resource Include="img\ICON\1032.ico" />
+    <Resource Include="img\ICON\1033.ico" />
+    <Resource Include="img\ICON\1034.ico" />
+    <Resource Include="img\ICON\1035.ico" />
+    <Resource Include="img\ICON\1036.ico" />
+    <Resource Include="img\ICON\1037.ico" />
+    <Resource Include="img\ICON\1038.ico" />
+    <Resource Include="img\ICON\1039.ico" />
+    <Resource Include="img\ICON\104.ico" />
+    <Resource Include="img\ICON\1040.ico" />
+    <Resource Include="img\ICON\1041.ico" />
+    <Resource Include="img\ICON\1042.ico" />
+    <Resource Include="img\ICON\1043.ico" />
+    <Resource Include="img\ICON\1044.ico" />
+    <Resource Include="img\ICON\1045.ico" />
+    <Resource Include="img\ICON\1046.ico" />
+    <Resource Include="img\ICON\1047.ico" />
+    <Resource Include="img\ICON\1048.ico" />
+    <Resource Include="img\ICON\1049.ico" />
+    <Resource Include="img\ICON\105.ico" />
+    <Resource Include="img\ICON\1050.ico" />
+    <Resource Include="img\ICON\1051.ico" />
+    <Resource Include="img\ICON\1052.ico" />
+    <Resource Include="img\ICON\1053.ico" />
+    <Resource Include="img\ICON\1054.ico" />
+    <Resource Include="img\ICON\1055.ico" />
+    <Resource Include="img\ICON\1056.ico" />
+    <Resource Include="img\ICON\1057.ico" />
+    <Resource Include="img\ICON\1058.ico" />
+    <Resource Include="img\ICON\1059.ico" />
+    <Resource Include="img\ICON\106.ico" />
+    <Resource Include="img\ICON\1060.ico" />
+    <Resource Include="img\ICON\1061.ico" />
+    <Resource Include="img\ICON\1062.ico" />
+    <Resource Include="img\ICON\1063.ico" />
+    <Resource Include="img\ICON\1064.ico" />
+    <Resource Include="img\ICON\1065.ico" />
+    <Resource Include="img\ICON\1066.ico" />
+    <Resource Include="img\ICON\1067.ico" />
+    <Resource Include="img\ICON\1068.ico" />
+    <Resource Include="img\ICON\1069.ico" />
+    <Resource Include="img\ICON\107.ico" />
+    <Resource Include="img\ICON\1070.ico" />
+    <Resource Include="img\ICON\1071.ico" />
+    <Resource Include="img\ICON\1072.ico" />
+    <Resource Include="img\ICON\1073.ico" />
+    <Resource Include="img\ICON\1074.ico" />
+    <Resource Include="img\ICON\1075.ico" />
+    <Resource Include="img\ICON\1076.ico" />
+    <Resource Include="img\ICON\1077.ico" />
+    <Resource Include="img\ICON\1078.ico" />
+    <Resource Include="img\ICON\1079.ico" />
+    <Resource Include="img\ICON\108.ico" />
+    <Resource Include="img\ICON\1080.ico" />
+    <Resource Include="img\ICON\1081.ico" />
+    <Resource Include="img\ICON\1082.ico" />
+    <Resource Include="img\ICON\1083.ico" />
+    <Resource Include="img\ICON\1084.ico" />
+    <Resource Include="img\ICON\1085.ico" />
+    <Resource Include="img\ICON\1086.ico" />
+    <Resource Include="img\ICON\1087.ico" />
+    <Resource Include="img\ICON\1088.ico" />
+    <Resource Include="img\ICON\1089.ico" />
+    <Resource Include="img\ICON\109.ico" />
+    <Resource Include="img\ICON\1090.ico" />
+    <Resource Include="img\ICON\1091.ico" />
+    <Resource Include="img\ICON\1092.ico" />
+    <Resource Include="img\ICON\1093.ico" />
+    <Resource Include="img\ICON\1094.ico" />
+    <Resource Include="img\ICON\1095.ico" />
+    <Resource Include="img\ICON\1096.ico" />
+    <Resource Include="img\ICON\1097.ico" />
+    <Resource Include="img\ICON\1098.ico" />
+    <Resource Include="img\ICON\1099.ico" />
+    <Resource Include="img\ICON\11.ico" />
+    <Resource Include="img\ICON\110.ico" />
+    <Resource Include="img\ICON\1100.ico" />
+    <Resource Include="img\ICON\1101.ico" />
+    <Resource Include="img\ICON\1102.ico" />
+    <Resource Include="img\ICON\1103.ico" />
+    <Resource Include="img\ICON\1104.ico" />
+    <Resource Include="img\ICON\1105.ico" />
+    <Resource Include="img\ICON\1106.ico" />
+    <Resource Include="img\ICON\1107.ico" />
+    <Resource Include="img\ICON\1108.ico" />
+    <Resource Include="img\ICON\1109.ico" />
+    <Resource Include="img\ICON\111.ico" />
+    <Resource Include="img\ICON\1110.ico" />
+    <Resource Include="img\ICON\1111.ico" />
+    <Resource Include="img\ICON\1112.ico" />
+    <Resource Include="img\ICON\1113.ico" />
+    <Resource Include="img\ICON\1114.ico" />
+    <Resource Include="img\ICON\1115.ico" />
+    <Resource Include="img\ICON\1116.ico" />
+    <Resource Include="img\ICON\1117.ico" />
+    <Resource Include="img\ICON\1118.ico" />
+    <Resource Include="img\ICON\1119.ico" />
+    <Resource Include="img\ICON\112.ico" />
+    <Resource Include="img\ICON\1120.ico" />
+    <Resource Include="img\ICON\1121.ico" />
+    <Resource Include="img\ICON\1122.ico" />
+    <Resource Include="img\ICON\1123.ico" />
+    <Resource Include="img\ICON\1124.ico" />
+    <Resource Include="img\ICON\1125.ico" />
+    <Resource Include="img\ICON\1126.ico" />
+    <Resource Include="img\ICON\1127.ico" />
+    <Resource Include="img\ICON\1128.ico" />
+    <Resource Include="img\ICON\1129.ico" />
+    <Resource Include="img\ICON\113.ico" />
+    <Resource Include="img\ICON\1130.ico" />
+    <Resource Include="img\ICON\1131.ico" />
+    <Resource Include="img\ICON\1132.ico" />
+    <Resource Include="img\ICON\1133.ico" />
+    <Resource Include="img\ICON\1134.ico" />
+    <Resource Include="img\ICON\1135.ico" />
+    <Resource Include="img\ICON\1136.ico" />
+    <Resource Include="img\ICON\1137.ico" />
+    <Resource Include="img\ICON\1138.ico" />
+    <Resource Include="img\ICON\1139.ico" />
+    <Resource Include="img\ICON\114.ico" />
+    <Resource Include="img\ICON\1140.ico" />
+    <Resource Include="img\ICON\1141.ico" />
+    <Resource Include="img\ICON\1142.ico" />
+    <Resource Include="img\ICON\1143.ico" />
+    <Resource Include="img\ICON\1144.ico" />
+    <Resource Include="img\ICON\1145.ico" />
+    <Resource Include="img\ICON\1146.ico" />
+    <Resource Include="img\ICON\1147.ico" />
+    <Resource Include="img\ICON\1148.ico" />
+    <Resource Include="img\ICON\1149.ico" />
+    <Resource Include="img\ICON\115.ico" />
+    <Resource Include="img\ICON\1150.ico" />
+    <Resource Include="img\ICON\1151.ico" />
+    <Resource Include="img\ICON\1152.ico" />
+    <Resource Include="img\ICON\1153.ico" />
+    <Resource Include="img\ICON\1154.ico" />
+    <Resource Include="img\ICON\1155.ico" />
+    <Resource Include="img\ICON\1156.ico" />
+    <Resource Include="img\ICON\1157.ico" />
+    <Resource Include="img\ICON\1158.ico" />
+    <Resource Include="img\ICON\1159.ico" />
+    <Resource Include="img\ICON\116.ico" />
+    <Resource Include="img\ICON\1160.ico" />
+    <Resource Include="img\ICON\1161.ico" />
+    <Resource Include="img\ICON\1162.ico" />
+    <Resource Include="img\ICON\1163.ico" />
+    <Resource Include="img\ICON\1164.ico" />
+    <Resource Include="img\ICON\1165.ico" />
+    <Resource Include="img\ICON\1166.ico" />
+    <Resource Include="img\ICON\1167.ico" />
+    <Resource Include="img\ICON\1168.ico" />
+    <Resource Include="img\ICON\1169.ico" />
+    <Resource Include="img\ICON\117.ico" />
+    <Resource Include="img\ICON\1170.ico" />
+    <Resource Include="img\ICON\1171.ico" />
+    <Resource Include="img\ICON\1172.ico" />
+    <Resource Include="img\ICON\1173.ico" />
+    <Resource Include="img\ICON\1174.ico" />
+    <Resource Include="img\ICON\1175.ico" />
+    <Resource Include="img\ICON\1176.ico" />
+    <Resource Include="img\ICON\1177.ico" />
+    <Resource Include="img\ICON\1178.ico" />
+    <Resource Include="img\ICON\1179.ico" />
+    <Resource Include="img\ICON\118.ico" />
+    <Resource Include="img\ICON\1180.ico" />
+    <Resource Include="img\ICON\1181.ico" />
+    <Resource Include="img\ICON\1182.ico" />
+    <Resource Include="img\ICON\1183.ico" />
+    <Resource Include="img\ICON\1184.ico" />
+    <Resource Include="img\ICON\1185.ico" />
+    <Resource Include="img\ICON\1186.ico" />
+    <Resource Include="img\ICON\1187.ico" />
+    <Resource Include="img\ICON\1188.ico" />
+    <Resource Include="img\ICON\1189.ico" />
+    <Resource Include="img\ICON\119.ico" />
+    <Resource Include="img\ICON\1190.ico" />
+    <Resource Include="img\ICON\1191.ico" />
+    <Resource Include="img\ICON\1192.ico" />
+    <Resource Include="img\ICON\1193.ico" />
+    <Resource Include="img\ICON\1194.ico" />
+    <Resource Include="img\ICON\1195.ico" />
+    <Resource Include="img\ICON\1196.ico" />
+    <Resource Include="img\ICON\1197.ico" />
+    <Resource Include="img\ICON\1198.ico" />
+    <Resource Include="img\ICON\1199.ico" />
+    <Resource Include="img\ICON\12.ico" />
+    <Resource Include="img\ICON\120.ico" />
+    <Resource Include="img\ICON\1200.ico" />
+    <Resource Include="img\ICON\1201.ico" />
+    <Resource Include="img\ICON\1202.ico" />
+    <Resource Include="img\ICON\1203.ico" />
+    <Resource Include="img\ICON\1204.ico" />
+    <Resource Include="img\ICON\1205.ico" />
+    <Resource Include="img\ICON\1206.ico" />
+    <Resource Include="img\ICON\1207.ico" />
+    <Resource Include="img\ICON\1208.ico" />
+    <Resource Include="img\ICON\1209.ico" />
+    <Resource Include="img\ICON\121.ico" />
+    <Resource Include="img\ICON\1210.ico" />
+    <Resource Include="img\ICON\1211.ico" />
+    <Resource Include="img\ICON\1212.ico" />
+    <Resource Include="img\ICON\1213.ico" />
+    <Resource Include="img\ICON\1214.ico" />
+    <Resource Include="img\ICON\1215.ico" />
+    <Resource Include="img\ICON\1216.ico" />
+    <Resource Include="img\ICON\1217.ico" />
+    <Resource Include="img\ICON\1218.ico" />
+    <Resource Include="img\ICON\1219.ico" />
+    <Resource Include="img\ICON\122.ico" />
+    <Resource Include="img\ICON\1220.ico" />
+    <Resource Include="img\ICON\1221.ico" />
+    <Resource Include="img\ICON\1222.ico" />
+    <Resource Include="img\ICON\1223.ico" />
+    <Resource Include="img\ICON\1224.ico" />
+    <Resource Include="img\ICON\1225.ico" />
+    <Resource Include="img\ICON\1226.ico" />
+    <Resource Include="img\ICON\1227.ico" />
+    <Resource Include="img\ICON\1228.ico" />
+    <Resource Include="img\ICON\1229.ico" />
+    <Resource Include="img\ICON\123.ico" />
+    <Resource Include="img\ICON\1230.ico" />
+    <Resource Include="img\ICON\1231.ico" />
+    <Resource Include="img\ICON\1232.ico" />
+    <Resource Include="img\ICON\1233.ico" />
+    <Resource Include="img\ICON\1234.ico" />
+    <Resource Include="img\ICON\1235.ico" />
+    <Resource Include="img\ICON\1236.ico" />
+    <Resource Include="img\ICON\1237.ico" />
+    <Resource Include="img\ICON\1238.ico" />
+    <Resource Include="img\ICON\1239.ico" />
+    <Resource Include="img\ICON\124.ico" />
+    <Resource Include="img\ICON\1240.ico" />
+    <Resource Include="img\ICON\1241.ico" />
+    <Resource Include="img\ICON\1242.ico" />
+    <Resource Include="img\ICON\1243.ico" />
+    <Resource Include="img\ICON\1244.ico" />
+    <Resource Include="img\ICON\1245.ico" />
+    <Resource Include="img\ICON\1246.ico" />
+    <Resource Include="img\ICON\1247.ico" />
+    <Resource Include="img\ICON\1248.ico" />
+    <Resource Include="img\ICON\1249.ico" />
+    <Resource Include="img\ICON\125.ico" />
+    <Resource Include="img\ICON\1250.ico" />
+    <Resource Include="img\ICON\1251.ico" />
+    <Resource Include="img\ICON\1252.ico" />
+    <Resource Include="img\ICON\1253.ico" />
+    <Resource Include="img\ICON\1254.ico" />
+    <Resource Include="img\ICON\1255.ico" />
+    <Resource Include="img\ICON\1256.ico" />
+    <Resource Include="img\ICON\1257.ico" />
+    <Resource Include="img\ICON\1258.ico" />
+    <Resource Include="img\ICON\1259.ico" />
+    <Resource Include="img\ICON\126.ico" />
+    <Resource Include="img\ICON\1260.ico" />
+    <Resource Include="img\ICON\1261.ico" />
+    <Resource Include="img\ICON\1262.ico" />
+    <Resource Include="img\ICON\1263.ico" />
+    <Resource Include="img\ICON\1264.ico" />
+    <Resource Include="img\ICON\1265.ico" />
+    <Resource Include="img\ICON\1266.ico" />
+    <Resource Include="img\ICON\1267.ico" />
+    <Resource Include="img\ICON\1268.ico" />
+    <Resource Include="img\ICON\1269.ico" />
+    <Resource Include="img\ICON\127.ico" />
+    <Resource Include="img\ICON\1270.ico" />
+    <Resource Include="img\ICON\1271.ico" />
+    <Resource Include="img\ICON\1272.ico" />
+    <Resource Include="img\ICON\1273.ico" />
+    <Resource Include="img\ICON\1274.ico" />
+    <Resource Include="img\ICON\1275.ico" />
+    <Resource Include="img\ICON\1276.ico" />
+    <Resource Include="img\ICON\1277.ico" />
+    <Resource Include="img\ICON\1278.ico" />
+    <Resource Include="img\ICON\1279.ico" />
+    <Resource Include="img\ICON\128.ico" />
+    <Resource Include="img\ICON\1280.ico" />
+    <Resource Include="img\ICON\1281.ico" />
+    <Resource Include="img\ICON\1282.ico" />
+    <Resource Include="img\ICON\1283.ico" />
+    <Resource Include="img\ICON\1284.ico" />
+    <Resource Include="img\ICON\1285.ico" />
+    <Resource Include="img\ICON\1286.ico" />
+    <Resource Include="img\ICON\1287.ico" />
+    <Resource Include="img\ICON\1288.ico" />
+    <Resource Include="img\ICON\1289.ico" />
+    <Resource Include="img\ICON\129.ico" />
+    <Resource Include="img\ICON\1290.ico" />
+    <Resource Include="img\ICON\1291.ico" />
+    <Resource Include="img\ICON\1292.ico" />
+    <Resource Include="img\ICON\1293.ico" />
+    <Resource Include="img\ICON\1294.ico" />
+    <Resource Include="img\ICON\1295.ico" />
+    <Resource Include="img\ICON\1296.ico" />
+    <Resource Include="img\ICON\1297.ico" />
+    <Resource Include="img\ICON\1298.ico" />
+    <Resource Include="img\ICON\1299.ico" />
+    <Resource Include="img\ICON\13.ico" />
+    <Resource Include="img\ICON\130.ico" />
+    <Resource Include="img\ICON\1300.ico" />
+    <Resource Include="img\ICON\1301.ico" />
+    <Resource Include="img\ICON\1302.ico" />
+    <Resource Include="img\ICON\1303.ico" />
+    <Resource Include="img\ICON\1304.ico" />
+    <Resource Include="img\ICON\1305.ico" />
+    <Resource Include="img\ICON\1306.ico" />
+    <Resource Include="img\ICON\1307.ico" />
+    <Resource Include="img\ICON\1308.ico" />
+    <Resource Include="img\ICON\1309.ico" />
+    <Resource Include="img\ICON\131.ico" />
+    <Resource Include="img\ICON\1310.ico" />
+    <Resource Include="img\ICON\1311.ico" />
+    <Resource Include="img\ICON\1312.ico" />
+    <Resource Include="img\ICON\1313.ico" />
+    <Resource Include="img\ICON\1314.ico" />
+    <Resource Include="img\ICON\1315.ico" />
+    <Resource Include="img\ICON\1316.ico" />
+    <Resource Include="img\ICON\1317.ico" />
+    <Resource Include="img\ICON\1318.ico" />
+    <Resource Include="img\ICON\1319.ico" />
+    <Resource Include="img\ICON\132.ico" />
+    <Resource Include="img\ICON\1320.ico" />
+    <Resource Include="img\ICON\1321.ico" />
+    <Resource Include="img\ICON\1322.ico" />
+    <Resource Include="img\ICON\1323.ico" />
+    <Resource Include="img\ICON\1324.ico" />
+    <Resource Include="img\ICON\1325.ico" />
+    <Resource Include="img\ICON\1326.ico" />
+    <Resource Include="img\ICON\1327.ico" />
+    <Resource Include="img\ICON\1328.ico" />
+    <Resource Include="img\ICON\1329.ico" />
+    <Resource Include="img\ICON\133.ico" />
+    <Resource Include="img\ICON\1330.ico" />
+    <Resource Include="img\ICON\1331.ico" />
+    <Resource Include="img\ICON\1332.ico" />
+    <Resource Include="img\ICON\1333.ico" />
+    <Resource Include="img\ICON\1334.ico" />
+    <Resource Include="img\ICON\1335.ico" />
+    <Resource Include="img\ICON\1336.ico" />
+    <Resource Include="img\ICON\1337.ico" />
+    <Resource Include="img\ICON\1338.ico" />
+    <Resource Include="img\ICON\1339.ico" />
+    <Resource Include="img\ICON\134.ico" />
+    <Resource Include="img\ICON\1340.ico" />
+    <Resource Include="img\ICON\1341.ico" />
+    <Resource Include="img\ICON\1342.ico" />
+    <Resource Include="img\ICON\1343.ico" />
+    <Resource Include="img\ICON\1344.ico" />
+    <Resource Include="img\ICON\1345.ico" />
+    <Resource Include="img\ICON\1346.ico" />
+    <Resource Include="img\ICON\1347.ico" />
+    <Resource Include="img\ICON\1348.ico" />
+    <Resource Include="img\ICON\1349.ico" />
+    <Resource Include="img\ICON\135.ico" />
+    <Resource Include="img\ICON\1350.ico" />
+    <Resource Include="img\ICON\1351.ico" />
+    <Resource Include="img\ICON\1352.ico" />
+    <Resource Include="img\ICON\1353.ico" />
+    <Resource Include="img\ICON\1354.ico" />
+    <Resource Include="img\ICON\1355.ico" />
+    <Resource Include="img\ICON\1356.ico" />
+    <Resource Include="img\ICON\1357.ico" />
+    <Resource Include="img\ICON\1358.ico" />
+    <Resource Include="img\ICON\1359.ico" />
+    <Resource Include="img\ICON\136.ico" />
+    <Resource Include="img\ICON\1360.ico" />
+    <Resource Include="img\ICON\1361.ico" />
+    <Resource Include="img\ICON\1362.ico" />
+    <Resource Include="img\ICON\1363.ico" />
+    <Resource Include="img\ICON\1364.ico" />
+    <Resource Include="img\ICON\1365.ico" />
+    <Resource Include="img\ICON\1366.ico" />
+    <Resource Include="img\ICON\1367.ico" />
+    <Resource Include="img\ICON\1368.ico" />
+    <Resource Include="img\ICON\1369.ico" />
+    <Resource Include="img\ICON\137.ico" />
+    <Resource Include="img\ICON\1370.ico" />
+    <Resource Include="img\ICON\1371.ico" />
+    <Resource Include="img\ICON\1372.ico" />
+    <Resource Include="img\ICON\1373.ico" />
+    <Resource Include="img\ICON\1374.ico" />
+    <Resource Include="img\ICON\1375.ico" />
+    <Resource Include="img\ICON\1376.ico" />
+    <Resource Include="img\ICON\1377.ico" />
+    <Resource Include="img\ICON\1378.ico" />
+    <Resource Include="img\ICON\1379.ico" />
+    <Resource Include="img\ICON\138.ico" />
+    <Resource Include="img\ICON\1380.ico" />
+    <Resource Include="img\ICON\1381.ico" />
+    <Resource Include="img\ICON\1382.ico" />
+    <Resource Include="img\ICON\1383.ico" />
+    <Resource Include="img\ICON\1384.ico" />
+    <Resource Include="img\ICON\1385.ico" />
+    <Resource Include="img\ICON\1386.ico" />
+    <Resource Include="img\ICON\1387.ico" />
+    <Resource Include="img\ICON\1388.ico" />
+    <Resource Include="img\ICON\1389.ico" />
+    <Resource Include="img\ICON\139.ico" />
+    <Resource Include="img\ICON\1390.ico" />
+    <Resource Include="img\ICON\1391.ico" />
+    <Resource Include="img\ICON\1392.ico" />
+    <Resource Include="img\ICON\1393.ico" />
+    <Resource Include="img\ICON\1394.ico" />
+    <Resource Include="img\ICON\1395.ico" />
+    <Resource Include="img\ICON\1396.ico" />
+    <Resource Include="img\ICON\1397.ico" />
+    <Resource Include="img\ICON\1398.ico" />
+    <Resource Include="img\ICON\1399.ico" />
+    <Resource Include="img\ICON\14.ico" />
+    <Resource Include="img\ICON\140.ico" />
+    <Resource Include="img\ICON\1400.ico" />
+    <Resource Include="img\ICON\1401.ico" />
+    <Resource Include="img\ICON\1402.ico" />
+    <Resource Include="img\ICON\1403.ico" />
+    <Resource Include="img\ICON\1404.ico" />
+    <Resource Include="img\ICON\1405.ico" />
+    <Resource Include="img\ICON\1406.ico" />
+    <Resource Include="img\ICON\1407.ico" />
+    <Resource Include="img\ICON\1408.ico" />
+    <Resource Include="img\ICON\1409.ico" />
+    <Resource Include="img\ICON\141.ico" />
+    <Resource Include="img\ICON\1410.ico" />
+    <Resource Include="img\ICON\1411.ico" />
+    <Resource Include="img\ICON\1412.ico" />
+    <Resource Include="img\ICON\1413.ico" />
+    <Resource Include="img\ICON\1414.ico" />
+    <Resource Include="img\ICON\1415.ico" />
+    <Resource Include="img\ICON\1416.ico" />
+    <Resource Include="img\ICON\1417.ico" />
+    <Resource Include="img\ICON\1418.ico" />
+    <Resource Include="img\ICON\1419.ico" />
+    <Resource Include="img\ICON\142.ico" />
+    <Resource Include="img\ICON\1420.ico" />
+    <Resource Include="img\ICON\1421.ico" />
+    <Resource Include="img\ICON\1422.ico" />
+    <Resource Include="img\ICON\1423.ico" />
+    <Resource Include="img\ICON\1424.ico" />
+    <Resource Include="img\ICON\1425.ico" />
+    <Resource Include="img\ICON\1426.ico" />
+    <Resource Include="img\ICON\1427.ico" />
+    <Resource Include="img\ICON\1428.ico" />
+    <Resource Include="img\ICON\1429.ico" />
+    <Resource Include="img\ICON\143.ico" />
+    <Resource Include="img\ICON\1430.ico" />
+    <Resource Include="img\ICON\1431.ico" />
+    <Resource Include="img\ICON\1432.ico" />
+    <Resource Include="img\ICON\1433.ico" />
+    <Resource Include="img\ICON\1434.ico" />
+    <Resource Include="img\ICON\1435.ico" />
+    <Resource Include="img\ICON\1436.ico" />
+    <Resource Include="img\ICON\1437.ico" />
+    <Resource Include="img\ICON\1438.ico" />
+    <Resource Include="img\ICON\1439.ico" />
+    <Resource Include="img\ICON\144.ico" />
+    <Resource Include="img\ICON\1440.ico" />
+    <Resource Include="img\ICON\1441.ico" />
+    <Resource Include="img\ICON\1442.ico" />
+    <Resource Include="img\ICON\1443.ico" />
+    <Resource Include="img\ICON\1444.ico" />
+    <Resource Include="img\ICON\1445.ico" />
+    <Resource Include="img\ICON\1446.ico" />
+    <Resource Include="img\ICON\1447.ico" />
+    <Resource Include="img\ICON\1448.ico" />
+    <Resource Include="img\ICON\1449.ico" />
+    <Resource Include="img\ICON\145.ico" />
+    <Resource Include="img\ICON\1450.ico" />
+    <Resource Include="img\ICON\1451.ico" />
+    <Resource Include="img\ICON\1452.ico" />
+    <Resource Include="img\ICON\1453.ico" />
+    <Resource Include="img\ICON\1454.ico" />
+    <Resource Include="img\ICON\1455.ico" />
+    <Resource Include="img\ICON\1456.ico" />
+    <Resource Include="img\ICON\1457.ico" />
+    <Resource Include="img\ICON\1458.ico" />
+    <Resource Include="img\ICON\1459.ico" />
+    <Resource Include="img\ICON\146.ico" />
+    <Resource Include="img\ICON\1460.ico" />
+    <Resource Include="img\ICON\1461.ico" />
+    <Resource Include="img\ICON\1462.ico" />
+    <Resource Include="img\ICON\1463.ico" />
+    <Resource Include="img\ICON\1464.ico" />
+    <Resource Include="img\ICON\1465.ico" />
+    <Resource Include="img\ICON\1466.ico" />
+    <Resource Include="img\ICON\1467.ico" />
+    <Resource Include="img\ICON\1468.ico" />
+    <Resource Include="img\ICON\1469.ico" />
+    <Resource Include="img\ICON\147.ico" />
+    <Resource Include="img\ICON\1470.ico" />
+    <Resource Include="img\ICON\1471.ico" />
+    <Resource Include="img\ICON\1472.ico" />
+    <Resource Include="img\ICON\1473.ico" />
+    <Resource Include="img\ICON\1474.ico" />
+    <Resource Include="img\ICON\1475.ico" />
+    <Resource Include="img\ICON\1476.ico" />
+    <Resource Include="img\ICON\1477.ico" />
+    <Resource Include="img\ICON\1478.ico" />
+    <Resource Include="img\ICON\1479.ico" />
+    <Resource Include="img\ICON\148.ico" />
+    <Resource Include="img\ICON\1480.ico" />
+    <Resource Include="img\ICON\1481.ico" />
+    <Resource Include="img\ICON\1482.ico" />
+    <Resource Include="img\ICON\1483.ico" />
+    <Resource Include="img\ICON\1484.ico" />
+    <Resource Include="img\ICON\1485.ico" />
+    <Resource Include="img\ICON\1486.ico" />
+    <Resource Include="img\ICON\1487.ico" />
+    <Resource Include="img\ICON\1488.ico" />
+    <Resource Include="img\ICON\1489.ico" />
+    <Resource Include="img\ICON\149.ico" />
+    <Resource Include="img\ICON\15.ico" />
+    <Resource Include="img\ICON\150.ico" />
+    <Resource Include="img\ICON\151.ico" />
+    <Resource Include="img\ICON\152.ico" />
+    <Resource Include="img\ICON\153.ico" />
+    <Resource Include="img\ICON\154.ico" />
+    <Resource Include="img\ICON\155.ico" />
+    <Resource Include="img\ICON\156.ico" />
+    <Resource Include="img\ICON\157.ico" />
+    <Resource Include="img\ICON\158.ico" />
+    <Resource Include="img\ICON\159.ico" />
+    <Resource Include="img\ICON\16.ico" />
+    <Resource Include="img\ICON\160.ico" />
+    <Resource Include="img\ICON\161.ico" />
+    <Resource Include="img\ICON\162.ico" />
+    <Resource Include="img\ICON\163.ico" />
+    <Resource Include="img\ICON\164.ico" />
+    <Resource Include="img\ICON\165.ico" />
+    <Resource Include="img\ICON\166.ico" />
+    <Resource Include="img\ICON\167.ico" />
+    <Resource Include="img\ICON\168.ico" />
+    <Resource Include="img\ICON\169.ico" />
+    <Resource Include="img\ICON\17.ico" />
+    <Resource Include="img\ICON\170.ico" />
+    <Resource Include="img\ICON\171.ico" />
+    <Resource Include="img\ICON\172.ico" />
+    <Resource Include="img\ICON\173.ico" />
+    <Resource Include="img\ICON\174.ico" />
+    <Resource Include="img\ICON\175.ico" />
+    <Resource Include="img\ICON\176.ico" />
+    <Resource Include="img\ICON\177.ico" />
+    <Resource Include="img\ICON\178.ico" />
+    <Resource Include="img\ICON\179.ico" />
+    <Resource Include="img\ICON\18.ico" />
+    <Resource Include="img\ICON\180.ico" />
+    <Resource Include="img\ICON\181.ico" />
+    <Resource Include="img\ICON\182.ico" />
+    <Resource Include="img\ICON\183.ico" />
+    <Resource Include="img\ICON\184.ico" />
+    <Resource Include="img\ICON\185.ico" />
+    <Resource Include="img\ICON\186.ico" />
+    <Resource Include="img\ICON\187.ico" />
+    <Resource Include="img\ICON\188.ico" />
+    <Resource Include="img\ICON\189.ico" />
+    <Resource Include="img\ICON\19.ico" />
+    <Resource Include="img\ICON\190.ico" />
+    <Resource Include="img\ICON\191.ico" />
+    <Resource Include="img\ICON\192.ico" />
+    <Resource Include="img\ICON\193.ico" />
+    <Resource Include="img\ICON\194.ico" />
+    <Resource Include="img\ICON\195.ico" />
+    <Resource Include="img\ICON\196.ico" />
+    <Resource Include="img\ICON\197.ico" />
+    <Resource Include="img\ICON\198.ico" />
+    <Resource Include="img\ICON\199.ico" />
+    <Resource Include="img\ICON\20.ico" />
+    <Resource Include="img\ICON\200.ico" />
+    <Resource Include="img\ICON\201.ico" />
+    <Resource Include="img\ICON\202.ico" />
+    <Resource Include="img\ICON\203.ico" />
+    <Resource Include="img\ICON\204.ico" />
+    <Resource Include="img\ICON\205.ico" />
+    <Resource Include="img\ICON\206.ico" />
+    <Resource Include="img\ICON\207.ico" />
+    <Resource Include="img\ICON\208.ico" />
+    <Resource Include="img\ICON\209.ico" />
+    <Resource Include="img\ICON\21.ico" />
+    <Resource Include="img\ICON\210.ico" />
+    <Resource Include="img\ICON\211.ico" />
+    <Resource Include="img\ICON\212.ico" />
+    <Resource Include="img\ICON\213.ico" />
+    <Resource Include="img\ICON\214.ico" />
+    <Resource Include="img\ICON\215.ico" />
+    <Resource Include="img\ICON\216.ico" />
+    <Resource Include="img\ICON\217.ico" />
+    <Resource Include="img\ICON\218.ico" />
+    <Resource Include="img\ICON\219.ico" />
+    <Resource Include="img\ICON\22.ico" />
+    <Resource Include="img\ICON\220.ico" />
+    <Resource Include="img\ICON\221.ico" />
+    <Resource Include="img\ICON\222.ico" />
+    <Resource Include="img\ICON\223.ico" />
+    <Resource Include="img\ICON\224.ico" />
+    <Resource Include="img\ICON\225.ico" />
+    <Resource Include="img\ICON\226.ico" />
+    <Resource Include="img\ICON\227.ico" />
+    <Resource Include="img\ICON\228.ico" />
+    <Resource Include="img\ICON\229.ico" />
+    <Resource Include="img\ICON\23.ico" />
+    <Resource Include="img\ICON\230.ico" />
+    <Resource Include="img\ICON\231.ico" />
+    <Resource Include="img\ICON\232.ico" />
+    <Resource Include="img\ICON\233.ico" />
+    <Resource Include="img\ICON\234.ico" />
+    <Resource Include="img\ICON\235.ico" />
+    <Resource Include="img\ICON\236.ico" />
+    <Resource Include="img\ICON\237.ico" />
+    <Resource Include="img\ICON\238.ico" />
+    <Resource Include="img\ICON\239.ico" />
+    <Resource Include="img\ICON\24.ico" />
+    <Resource Include="img\ICON\240.ico" />
+    <Resource Include="img\ICON\241.ico" />
+    <Resource Include="img\ICON\242.ico" />
+    <Resource Include="img\ICON\243.ico" />
+    <Resource Include="img\ICON\244.ico" />
+    <Resource Include="img\ICON\245.ico" />
+    <Resource Include="img\ICON\246.ico" />
+    <Resource Include="img\ICON\247.ico" />
+    <Resource Include="img\ICON\248.ico" />
+    <Resource Include="img\ICON\249.ico" />
+    <Resource Include="img\ICON\25.ico" />
+    <Resource Include="img\ICON\250.ico" />
+    <Resource Include="img\ICON\251.ico" />
+    <Resource Include="img\ICON\252.ico" />
+    <Resource Include="img\ICON\253.ico" />
+    <Resource Include="img\ICON\254.ico" />
+    <Resource Include="img\ICON\255.ico" />
+    <Resource Include="img\ICON\256.ico" />
+    <Resource Include="img\ICON\257.ico" />
+    <Resource Include="img\ICON\258.ico" />
+    <Resource Include="img\ICON\259.ico" />
+    <Resource Include="img\ICON\26.ico" />
+    <Resource Include="img\ICON\260.ico" />
+    <Resource Include="img\ICON\261.ico" />
+    <Resource Include="img\ICON\262.ico" />
+    <Resource Include="img\ICON\263.ico" />
+    <Resource Include="img\ICON\264.ico" />
+    <Resource Include="img\ICON\265.ico" />
+    <Resource Include="img\ICON\266.ico" />
+    <Resource Include="img\ICON\267.ico" />
+    <Resource Include="img\ICON\268.ico" />
+    <Resource Include="img\ICON\269.ico" />
+    <Resource Include="img\ICON\27.ico" />
+    <Resource Include="img\ICON\270.ico" />
+    <Resource Include="img\ICON\271.ico" />
+    <Resource Include="img\ICON\272.ico" />
+    <Resource Include="img\ICON\273.ico" />
+    <Resource Include="img\ICON\274.ico" />
+    <Resource Include="img\ICON\275.ico" />
+    <Resource Include="img\ICON\276.ico" />
+    <Resource Include="img\ICON\277.ico" />
+    <Resource Include="img\ICON\278.ico" />
+    <Resource Include="img\ICON\279.ico" />
+    <Resource Include="img\ICON\28.ico" />
+    <Resource Include="img\ICON\280.ico" />
+    <Resource Include="img\ICON\281.ico" />
+    <Resource Include="img\ICON\282.ico" />
+    <Resource Include="img\ICON\283.ico" />
+    <Resource Include="img\ICON\284.ico" />
+    <Resource Include="img\ICON\285.ico" />
+    <Resource Include="img\ICON\286.ico" />
+    <Resource Include="img\ICON\287.ico" />
+    <Resource Include="img\ICON\288.ico" />
+    <Resource Include="img\ICON\289.ico" />
+    <Resource Include="img\ICON\29.ico" />
+    <Resource Include="img\ICON\290.ico" />
+    <Resource Include="img\ICON\291.ico" />
+    <Resource Include="img\ICON\292.ico" />
+    <Resource Include="img\ICON\293.ico" />
+    <Resource Include="img\ICON\294.ico" />
+    <Resource Include="img\ICON\295.ico" />
+    <Resource Include="img\ICON\296.ico" />
+    <Resource Include="img\ICON\297.ico" />
+    <Resource Include="img\ICON\298.ico" />
+    <Resource Include="img\ICON\299.ico" />
+    <Resource Include="img\ICON\30.ico" />
+    <Resource Include="img\ICON\300.ico" />
+    <Resource Include="img\ICON\301.ico" />
+    <Resource Include="img\ICON\302.ico" />
+    <Resource Include="img\ICON\303.ico" />
+    <Resource Include="img\ICON\304.ico" />
+    <Resource Include="img\ICON\305.ico" />
+    <Resource Include="img\ICON\306.ico" />
+    <Resource Include="img\ICON\307.ico" />
+    <Resource Include="img\ICON\308.ico" />
+    <Resource Include="img\ICON\309.ico" />
+    <Resource Include="img\ICON\31.ico" />
+    <Resource Include="img\ICON\310.ico" />
+    <Resource Include="img\ICON\311.ico" />
+    <Resource Include="img\ICON\312.ico" />
+    <Resource Include="img\ICON\313.ico" />
+    <Resource Include="img\ICON\314.ico" />
+    <Resource Include="img\ICON\315.ico" />
+    <Resource Include="img\ICON\316.ico" />
+    <Resource Include="img\ICON\317.ico" />
+    <Resource Include="img\ICON\318.ico" />
+    <Resource Include="img\ICON\319.ico" />
+    <Resource Include="img\ICON\32.ico" />
+    <Resource Include="img\ICON\320.ico" />
+    <Resource Include="img\ICON\321.ico" />
+    <Resource Include="img\ICON\322.ico" />
+    <Resource Include="img\ICON\323.ico" />
+    <Resource Include="img\ICON\324.ico" />
+    <Resource Include="img\ICON\325.ico" />
+    <Resource Include="img\ICON\326.ico" />
+    <Resource Include="img\ICON\327.ico" />
+    <Resource Include="img\ICON\328.ico" />
+    <Resource Include="img\ICON\329.ico" />
+    <Resource Include="img\ICON\33.ico" />
+    <Resource Include="img\ICON\330.ico" />
+    <Resource Include="img\ICON\331.ico" />
+    <Resource Include="img\ICON\332.ico" />
+    <Resource Include="img\ICON\333.ico" />
+    <Resource Include="img\ICON\334.ico" />
+    <Resource Include="img\ICON\335.ico" />
+    <Resource Include="img\ICON\336.ico" />
+    <Resource Include="img\ICON\337.ico" />
+    <Resource Include="img\ICON\338.ico" />
+    <Resource Include="img\ICON\339.ico" />
+    <Resource Include="img\ICON\34.ico" />
+    <Resource Include="img\ICON\340.ico" />
+    <Resource Include="img\ICON\341.ico" />
+    <Resource Include="img\ICON\342.ico" />
+    <Resource Include="img\ICON\343.ico" />
+    <Resource Include="img\ICON\344.ico" />
+    <Resource Include="img\ICON\345.ico" />
+    <Resource Include="img\ICON\346.ico" />
+    <Resource Include="img\ICON\347.ico" />
+    <Resource Include="img\ICON\348.ico" />
+    <Resource Include="img\ICON\349.ico" />
+    <Resource Include="img\ICON\35.ico" />
+    <Resource Include="img\ICON\350.ico" />
+    <Resource Include="img\ICON\351.ico" />
+    <Resource Include="img\ICON\352.ico" />
+    <Resource Include="img\ICON\353.ico" />
+    <Resource Include="img\ICON\354.ico" />
+    <Resource Include="img\ICON\355.ico" />
+    <Resource Include="img\ICON\356.ico" />
+    <Resource Include="img\ICON\357.ico" />
+    <Resource Include="img\ICON\358.ico" />
+    <Resource Include="img\ICON\359.ico" />
+    <Resource Include="img\ICON\36.ico" />
+    <Resource Include="img\ICON\360.ico" />
+    <Resource Include="img\ICON\361.ico" />
+    <Resource Include="img\ICON\362.ico" />
+    <Resource Include="img\ICON\363.ico" />
+    <Resource Include="img\ICON\364.ico" />
+    <Resource Include="img\ICON\365.ico" />
+    <Resource Include="img\ICON\366.ico" />
+    <Resource Include="img\ICON\367.ico" />
+    <Resource Include="img\ICON\368.ico" />
+    <Resource Include="img\ICON\369.ico" />
+    <Resource Include="img\ICON\37.ico" />
+    <Resource Include="img\ICON\370.ico" />
+    <Resource Include="img\ICON\371.ico" />
+    <Resource Include="img\ICON\372.ico" />
+    <Resource Include="img\ICON\373.ico" />
+    <Resource Include="img\ICON\374.ico" />
+    <Resource Include="img\ICON\375.ico" />
+    <Resource Include="img\ICON\376.ico" />
+    <Resource Include="img\ICON\377.ico" />
+    <Resource Include="img\ICON\378.ico" />
+    <Resource Include="img\ICON\379.ico" />
+    <Resource Include="img\ICON\38.ico" />
+    <Resource Include="img\ICON\380.ico" />
+    <Resource Include="img\ICON\381.ico" />
+    <Resource Include="img\ICON\382.ico" />
+    <Resource Include="img\ICON\383.ico" />
+    <Resource Include="img\ICON\384.ico" />
+    <Resource Include="img\ICON\385.ico" />
+    <Resource Include="img\ICON\386.ico" />
+    <Resource Include="img\ICON\387.ico" />
+    <Resource Include="img\ICON\388.ico" />
+    <Resource Include="img\ICON\389.ico" />
+    <Resource Include="img\ICON\39.ico" />
+    <Resource Include="img\ICON\390.ico" />
+    <Resource Include="img\ICON\391.ico" />
+    <Resource Include="img\ICON\392.ico" />
+    <Resource Include="img\ICON\393.ico" />
+    <Resource Include="img\ICON\394.ico" />
+    <Resource Include="img\ICON\395.ico" />
+    <Resource Include="img\ICON\396.ico" />
+    <Resource Include="img\ICON\397.ico" />
+    <Resource Include="img\ICON\398.ico" />
+    <Resource Include="img\ICON\399.ico" />
+    <Resource Include="img\ICON\40.ico" />
+    <Resource Include="img\ICON\400.ico" />
+    <Resource Include="img\ICON\401.ico" />
+    <Resource Include="img\ICON\402.ico" />
+    <Resource Include="img\ICON\403.ico" />
+    <Resource Include="img\ICON\404.ico" />
+    <Resource Include="img\ICON\405.ico" />
+    <Resource Include="img\ICON\406.ico" />
+    <Resource Include="img\ICON\407.ico" />
+    <Resource Include="img\ICON\408.ico" />
+    <Resource Include="img\ICON\409.ico" />
+    <Resource Include="img\ICON\41.ico" />
+    <Resource Include="img\ICON\410.ico" />
+    <Resource Include="img\ICON\411.ico" />
+    <Resource Include="img\ICON\412.ico" />
+    <Resource Include="img\ICON\413.ico" />
+    <Resource Include="img\ICON\414.ico" />
+    <Resource Include="img\ICON\415.ico" />
+    <Resource Include="img\ICON\416.ico" />
+    <Resource Include="img\ICON\417.ico" />
+    <Resource Include="img\ICON\418.ico" />
+    <Resource Include="img\ICON\419.ico" />
+    <Resource Include="img\ICON\42.ico" />
+    <Resource Include="img\ICON\420.ico" />
+    <Resource Include="img\ICON\421.ico" />
+    <Resource Include="img\ICON\422.ico" />
+    <Resource Include="img\ICON\423.ico" />
+    <Resource Include="img\ICON\424.ico" />
+    <Resource Include="img\ICON\425.ico" />
+    <Resource Include="img\ICON\426.ico" />
+    <Resource Include="img\ICON\427.ico" />
+    <Resource Include="img\ICON\428.ico" />
+    <Resource Include="img\ICON\429.ico" />
+    <Resource Include="img\ICON\43.ico" />
+    <Resource Include="img\ICON\430.ico" />
+    <Resource Include="img\ICON\431.ico" />
+    <Resource Include="img\ICON\432.ico" />
+    <Resource Include="img\ICON\433.ico" />
+    <Resource Include="img\ICON\434.ico" />
+    <Resource Include="img\ICON\435.ico" />
+    <Resource Include="img\ICON\436.ico" />
+    <Resource Include="img\ICON\437.ico" />
+    <Resource Include="img\ICON\438.ico" />
+    <Resource Include="img\ICON\439.ico" />
+    <Resource Include="img\ICON\44.ico" />
+    <Resource Include="img\ICON\440.ico" />
+    <Resource Include="img\ICON\441.ico" />
+    <Resource Include="img\ICON\442.ico" />
+    <Resource Include="img\ICON\443.ico" />
+    <Resource Include="img\ICON\444.ico" />
+    <Resource Include="img\ICON\445.ico" />
+    <Resource Include="img\ICON\446.ico" />
+    <Resource Include="img\ICON\447.ico" />
+    <Resource Include="img\ICON\448.ico" />
+    <Resource Include="img\ICON\449.ico" />
+    <Resource Include="img\ICON\45.ico" />
+    <Resource Include="img\ICON\450.ico" />
+    <Resource Include="img\ICON\451.ico" />
+    <Resource Include="img\ICON\452.ico" />
+    <Resource Include="img\ICON\453.ico" />
+    <Resource Include="img\ICON\454.ico" />
+    <Resource Include="img\ICON\455.ico" />
+    <Resource Include="img\ICON\456.ico" />
+    <Resource Include="img\ICON\457.ico" />
+    <Resource Include="img\ICON\458.ico" />
+    <Resource Include="img\ICON\459.ico" />
+    <Resource Include="img\ICON\46.ico" />
+    <Resource Include="img\ICON\460.ico" />
+    <Resource Include="img\ICON\461.ico" />
+    <Resource Include="img\ICON\462.ico" />
+    <Resource Include="img\ICON\463.ico" />
+    <Resource Include="img\ICON\464.ico" />
+    <Resource Include="img\ICON\465.ico" />
+    <Resource Include="img\ICON\466.ico" />
+    <Resource Include="img\ICON\467.ico" />
+    <Resource Include="img\ICON\468.ico" />
+    <Resource Include="img\ICON\469.ico" />
+    <Resource Include="img\ICON\47.ico" />
+    <Resource Include="img\ICON\470.ico" />
+    <Resource Include="img\ICON\471.ico" />
+    <Resource Include="img\ICON\472.ico" />
+    <Resource Include="img\ICON\473.ico" />
+    <Resource Include="img\ICON\474.ico" />
+    <Resource Include="img\ICON\475.ico" />
+    <Resource Include="img\ICON\476.ico" />
+    <Resource Include="img\ICON\477.ico" />
+    <Resource Include="img\ICON\478.ico" />
+    <Resource Include="img\ICON\479.ico" />
+    <Resource Include="img\ICON\48.ico" />
+    <Resource Include="img\ICON\480.ico" />
+    <Resource Include="img\ICON\481.ico" />
+    <Resource Include="img\ICON\482.ico" />
+    <Resource Include="img\ICON\483.ico" />
+    <Resource Include="img\ICON\484.ico" />
+    <Resource Include="img\ICON\485.ico" />
+    <Resource Include="img\ICON\486.ico" />
+    <Resource Include="img\ICON\487.ico" />
+    <Resource Include="img\ICON\488.ico" />
+    <Resource Include="img\ICON\489.ico" />
+    <Resource Include="img\ICON\49.ico" />
+    <Resource Include="img\ICON\490.ico" />
+    <Resource Include="img\ICON\491.ico" />
+    <Resource Include="img\ICON\492.ico" />
+    <Resource Include="img\ICON\493.ico" />
+    <Resource Include="img\ICON\494.ico" />
+    <Resource Include="img\ICON\495.ico" />
+    <Resource Include="img\ICON\496.ico" />
+    <Resource Include="img\ICON\497.ico" />
+    <Resource Include="img\ICON\498.ico" />
+    <Resource Include="img\ICON\499.ico" />
+    <Resource Include="img\ICON\50.ico" />
+    <Resource Include="img\ICON\500.ico" />
+    <Resource Include="img\ICON\501.ico" />
+    <Resource Include="img\ICON\502.ico" />
+    <Resource Include="img\ICON\503.ico" />
+    <Resource Include="img\ICON\504.ico" />
+    <Resource Include="img\ICON\505.ico" />
+    <Resource Include="img\ICON\506.ico" />
+    <Resource Include="img\ICON\507.ico" />
+    <Resource Include="img\ICON\508.ico" />
+    <Resource Include="img\ICON\509.ico" />
+    <Resource Include="img\ICON\51.ico" />
+    <Resource Include="img\ICON\510.ico" />
+    <Resource Include="img\ICON\511.ico" />
+    <Resource Include="img\ICON\512.ico" />
+    <Resource Include="img\ICON\513.ico" />
+    <Resource Include="img\ICON\514.ico" />
+    <Resource Include="img\ICON\515.ico" />
+    <Resource Include="img\ICON\516.ico" />
+    <Resource Include="img\ICON\517.ico" />
+    <Resource Include="img\ICON\518.ico" />
+    <Resource Include="img\ICON\519.ico" />
+    <Resource Include="img\ICON\52.ico" />
+    <Resource Include="img\ICON\520.ico" />
+    <Resource Include="img\ICON\521.ico" />
+    <Resource Include="img\ICON\522.ico" />
+    <Resource Include="img\ICON\523.ico" />
+    <Resource Include="img\ICON\524.ico" />
+    <Resource Include="img\ICON\525.ico" />
+    <Resource Include="img\ICON\526.ico" />
+    <Resource Include="img\ICON\527.ico" />
+    <Resource Include="img\ICON\528.ico" />
+    <Resource Include="img\ICON\529.ico" />
+    <Resource Include="img\ICON\53.ico" />
+    <Resource Include="img\ICON\530.ico" />
+    <Resource Include="img\ICON\531.ico" />
+    <Resource Include="img\ICON\532.ico" />
+    <Resource Include="img\ICON\533.ico" />
+    <Resource Include="img\ICON\534.ico" />
+    <Resource Include="img\ICON\535.ico" />
+    <Resource Include="img\ICON\536.ico" />
+    <Resource Include="img\ICON\537.ico" />
+    <Resource Include="img\ICON\538.ico" />
+    <Resource Include="img\ICON\539.ico" />
+    <Resource Include="img\ICON\54.ico" />
+    <Resource Include="img\ICON\540.ico" />
+    <Resource Include="img\ICON\541.ico" />
+    <Resource Include="img\ICON\542.ico" />
+    <Resource Include="img\ICON\543.ico" />
+    <Resource Include="img\ICON\544.ico" />
+    <Resource Include="img\ICON\545.ico" />
+    <Resource Include="img\ICON\546.ico" />
+    <Resource Include="img\ICON\547.ico" />
+    <Resource Include="img\ICON\548.ico" />
+    <Resource Include="img\ICON\549.ico" />
+    <Resource Include="img\ICON\55.ico" />
+    <Resource Include="img\ICON\550.ico" />
+    <Resource Include="img\ICON\551.ico" />
+    <Resource Include="img\ICON\552.ico" />
+    <Resource Include="img\ICON\553.ico" />
+    <Resource Include="img\ICON\554.ico" />
+    <Resource Include="img\ICON\555.ico" />
+    <Resource Include="img\ICON\556.ico" />
+    <Resource Include="img\ICON\557.ico" />
+    <Resource Include="img\ICON\558.ico" />
+    <Resource Include="img\ICON\559.ico" />
+    <Resource Include="img\ICON\56.ico" />
+    <Resource Include="img\ICON\560.ico" />
+    <Resource Include="img\ICON\561.ico" />
+    <Resource Include="img\ICON\562.ico" />
+    <Resource Include="img\ICON\563.ico" />
+    <Resource Include="img\ICON\564.ico" />
+    <Resource Include="img\ICON\565.ico" />
+    <Resource Include="img\ICON\566.ico" />
+    <Resource Include="img\ICON\567.ico" />
+    <Resource Include="img\ICON\568.ico" />
+    <Resource Include="img\ICON\569.ico" />
+    <Resource Include="img\ICON\57.ico" />
+    <Resource Include="img\ICON\570.ico" />
+    <Resource Include="img\ICON\571.ico" />
+    <Resource Include="img\ICON\572.ico" />
+    <Resource Include="img\ICON\573.ico" />
+    <Resource Include="img\ICON\574.ico" />
+    <Resource Include="img\ICON\575.ico" />
+    <Resource Include="img\ICON\576.ico" />
+    <Resource Include="img\ICON\577.ico" />
+    <Resource Include="img\ICON\578.ico" />
+    <Resource Include="img\ICON\579.ico" />
+    <Resource Include="img\ICON\58.ico" />
+    <Resource Include="img\ICON\580.ico" />
+    <Resource Include="img\ICON\581.ico" />
+    <Resource Include="img\ICON\582.ico" />
+    <Resource Include="img\ICON\583.ico" />
+    <Resource Include="img\ICON\584.ico" />
+    <Resource Include="img\ICON\585.ico" />
+    <Resource Include="img\ICON\586.ico" />
+    <Resource Include="img\ICON\587.ico" />
+    <Resource Include="img\ICON\588.ico" />
+    <Resource Include="img\ICON\589.ico" />
+    <Resource Include="img\ICON\59.ico" />
+    <Resource Include="img\ICON\590.ico" />
+    <Resource Include="img\ICON\591.ico" />
+    <Resource Include="img\ICON\592.ico" />
+    <Resource Include="img\ICON\593.ico" />
+    <Resource Include="img\ICON\594.ico" />
+    <Resource Include="img\ICON\595.ico" />
+    <Resource Include="img\ICON\596.ico" />
+    <Resource Include="img\ICON\597.ico" />
+    <Resource Include="img\ICON\598.ico" />
+    <Resource Include="img\ICON\599.ico" />
+    <Resource Include="img\ICON\6.ico" />
+    <Resource Include="img\ICON\60.ico" />
+    <Resource Include="img\ICON\600.ico" />
+    <Resource Include="img\ICON\601.ico" />
+    <Resource Include="img\ICON\602.ico" />
+    <Resource Include="img\ICON\603.ico" />
+    <Resource Include="img\ICON\604.ico" />
+    <Resource Include="img\ICON\605.ico" />
+    <Resource Include="img\ICON\606.ico" />
+    <Resource Include="img\ICON\607.ico" />
+    <Resource Include="img\ICON\608.ico" />
+    <Resource Include="img\ICON\609.ico" />
+    <Resource Include="img\ICON\61.ico" />
+    <Resource Include="img\ICON\610.ico" />
+    <Resource Include="img\ICON\611.ico" />
+    <Resource Include="img\ICON\612.ico" />
+    <Resource Include="img\ICON\613.ico" />
+    <Resource Include="img\ICON\614.ico" />
+    <Resource Include="img\ICON\615.ico" />
+    <Resource Include="img\ICON\616.ico" />
+    <Resource Include="img\ICON\617.ico" />
+    <Resource Include="img\ICON\618.ico" />
+    <Resource Include="img\ICON\619.ico" />
+    <Resource Include="img\ICON\62.ico" />
+    <Resource Include="img\ICON\620.ico" />
+    <Resource Include="img\ICON\621.ico" />
+    <Resource Include="img\ICON\622.ico" />
+    <Resource Include="img\ICON\623.ico" />
+    <Resource Include="img\ICON\624.ico" />
+    <Resource Include="img\ICON\625.ico" />
+    <Resource Include="img\ICON\626.ico" />
+    <Resource Include="img\ICON\627.ico" />
+    <Resource Include="img\ICON\628.ico" />
+    <Resource Include="img\ICON\629.ico" />
+    <Resource Include="img\ICON\63.ico" />
+    <Resource Include="img\ICON\630.ico" />
+    <Resource Include="img\ICON\631.ico" />
+    <Resource Include="img\ICON\632.ico" />
+    <Resource Include="img\ICON\633.ico" />
+    <Resource Include="img\ICON\634.ico" />
+    <Resource Include="img\ICON\635.ico" />
+    <Resource Include="img\ICON\636.ico" />
+    <Resource Include="img\ICON\637.ico" />
+    <Resource Include="img\ICON\638.ico" />
+    <Resource Include="img\ICON\639.ico" />
+    <Resource Include="img\ICON\64.ico" />
+    <Resource Include="img\ICON\640.ico" />
+    <Resource Include="img\ICON\641.ico" />
+    <Resource Include="img\ICON\642.ico" />
+    <Resource Include="img\ICON\643.ico" />
+    <Resource Include="img\ICON\644.ico" />
+    <Resource Include="img\ICON\645.ico" />
+    <Resource Include="img\ICON\646.ico" />
+    <Resource Include="img\ICON\647.ico" />
+    <Resource Include="img\ICON\648.ico" />
+    <Resource Include="img\ICON\649.ico" />
+    <Resource Include="img\ICON\65.ico" />
+    <Resource Include="img\ICON\650.ico" />
+    <Resource Include="img\ICON\651.ico" />
+    <Resource Include="img\ICON\652.ico" />
+    <Resource Include="img\ICON\653.ico" />
+    <Resource Include="img\ICON\654.ico" />
+    <Resource Include="img\ICON\655.ico" />
+    <Resource Include="img\ICON\656.ico" />
+    <Resource Include="img\ICON\657.ico" />
+    <Resource Include="img\ICON\658.ico" />
+    <Resource Include="img\ICON\659.ico" />
+    <Resource Include="img\ICON\66.ico" />
+    <Resource Include="img\ICON\660.ico" />
+    <Resource Include="img\ICON\661.ico" />
+    <Resource Include="img\ICON\662.ico" />
+    <Resource Include="img\ICON\663.ico" />
+    <Resource Include="img\ICON\664.ico" />
+    <Resource Include="img\ICON\665.ico" />
+    <Resource Include="img\ICON\666.ico" />
+    <Resource Include="img\ICON\667.ico" />
+    <Resource Include="img\ICON\668.ico" />
+    <Resource Include="img\ICON\669.ico" />
+    <Resource Include="img\ICON\67.ico" />
+    <Resource Include="img\ICON\670.ico" />
+    <Resource Include="img\ICON\671.ico" />
+    <Resource Include="img\ICON\672.ico" />
+    <Resource Include="img\ICON\673.ico" />
+    <Resource Include="img\ICON\674.ico" />
+    <Resource Include="img\ICON\675.ico" />
+    <Resource Include="img\ICON\676.ico" />
+    <Resource Include="img\ICON\677.ico" />
+    <Resource Include="img\ICON\678.ico" />
+    <Resource Include="img\ICON\679.ico" />
+    <Resource Include="img\ICON\68.ico" />
+    <Resource Include="img\ICON\680.ico" />
+    <Resource Include="img\ICON\681.ico" />
+    <Resource Include="img\ICON\682.ico" />
+    <Resource Include="img\ICON\683.ico" />
+    <Resource Include="img\ICON\684.ico" />
+    <Resource Include="img\ICON\685.ico" />
+    <Resource Include="img\ICON\686.ico" />
+    <Resource Include="img\ICON\687.ico" />
+    <Resource Include="img\ICON\688.ico" />
+    <Resource Include="img\ICON\689.ico" />
+    <Resource Include="img\ICON\69.ico" />
+    <Resource Include="img\ICON\690.ico" />
+    <Resource Include="img\ICON\691.ico" />
+    <Resource Include="img\ICON\692.ico" />
+    <Resource Include="img\ICON\693.ico" />
+    <Resource Include="img\ICON\694.ico" />
+    <Resource Include="img\ICON\695.ico" />
+    <Resource Include="img\ICON\696.ico" />
+    <Resource Include="img\ICON\697.ico" />
+    <Resource Include="img\ICON\698.ico" />
+    <Resource Include="img\ICON\699.ico" />
+    <Resource Include="img\ICON\7.ico" />
+    <Resource Include="img\ICON\70.ico" />
+    <Resource Include="img\ICON\700.ico" />
+    <Resource Include="img\ICON\701.ico" />
+    <Resource Include="img\ICON\702.ico" />
+    <Resource Include="img\ICON\703.ico" />
+    <Resource Include="img\ICON\704.ico" />
+    <Resource Include="img\ICON\705.ico" />
+    <Resource Include="img\ICON\706.ico" />
+    <Resource Include="img\ICON\707.ico" />
+    <Resource Include="img\ICON\708.ico" />
+    <Resource Include="img\ICON\709.ico" />
+    <Resource Include="img\ICON\71.ico" />
+    <Resource Include="img\ICON\710.ico" />
+    <Resource Include="img\ICON\711.ico" />
+    <Resource Include="img\ICON\712.ico" />
+    <Resource Include="img\ICON\713.ico" />
+    <Resource Include="img\ICON\714.ico" />
+    <Resource Include="img\ICON\715.ico" />
+    <Resource Include="img\ICON\716.ico" />
+    <Resource Include="img\ICON\717.ico" />
+    <Resource Include="img\ICON\718.ico" />
+    <Resource Include="img\ICON\719.ico" />
+    <Resource Include="img\ICON\72.ico" />
+    <Resource Include="img\ICON\720.ico" />
+    <Resource Include="img\ICON\721.ico" />
+    <Resource Include="img\ICON\722.ico" />
+    <Resource Include="img\ICON\723.ico" />
+    <Resource Include="img\ICON\724.ico" />
+    <Resource Include="img\ICON\725.ico" />
+    <Resource Include="img\ICON\726.ico" />
+    <Resource Include="img\ICON\727.ico" />
+    <Resource Include="img\ICON\728.ico" />
+    <Resource Include="img\ICON\729.ico" />
+    <Resource Include="img\ICON\73.ico" />
+    <Resource Include="img\ICON\730.ico" />
+    <Resource Include="img\ICON\731.ico" />
+    <Resource Include="img\ICON\732.ico" />
+    <Resource Include="img\ICON\733.ico" />
+    <Resource Include="img\ICON\734.ico" />
+    <Resource Include="img\ICON\735.ico" />
+    <Resource Include="img\ICON\736.ico" />
+    <Resource Include="img\ICON\737.ico" />
+    <Resource Include="img\ICON\738.ico" />
+    <Resource Include="img\ICON\739.ico" />
+    <Resource Include="img\ICON\74.ico" />
+    <Resource Include="img\ICON\740.ico" />
+    <Resource Include="img\ICON\741.ico" />
+    <Resource Include="img\ICON\742.ico" />
+    <Resource Include="img\ICON\743.ico" />
+    <Resource Include="img\ICON\744.ico" />
+    <Resource Include="img\ICON\745.ico" />
+    <Resource Include="img\ICON\746.ico" />
+    <Resource Include="img\ICON\747.ico" />
+    <Resource Include="img\ICON\748.ico" />
+    <Resource Include="img\ICON\749.ico" />
+    <Resource Include="img\ICON\75.ico" />
+    <Resource Include="img\ICON\750.ico" />
+    <Resource Include="img\ICON\751.ico" />
+    <Resource Include="img\ICON\752.ico" />
+    <Resource Include="img\ICON\753.ico" />
+    <Resource Include="img\ICON\754.ico" />
+    <Resource Include="img\ICON\755.ico" />
+    <Resource Include="img\ICON\756.ico" />
+    <Resource Include="img\ICON\757.ico" />
+    <Resource Include="img\ICON\758.ico" />
+    <Resource Include="img\ICON\759.ico" />
+    <Resource Include="img\ICON\76.ico" />
+    <Resource Include="img\ICON\760.ico" />
+    <Resource Include="img\ICON\761.ico" />
+    <Resource Include="img\ICON\762.ico" />
+    <Resource Include="img\ICON\763.ico" />
+    <Resource Include="img\ICON\764.ico" />
+    <Resource Include="img\ICON\765.ico" />
+    <Resource Include="img\ICON\766.ico" />
+    <Resource Include="img\ICON\767.ico" />
+    <Resource Include="img\ICON\768.ico" />
+    <Resource Include="img\ICON\769.ico" />
+    <Resource Include="img\ICON\77.ico" />
+    <Resource Include="img\ICON\770.ico" />
+    <Resource Include="img\ICON\771.ico" />
+    <Resource Include="img\ICON\772.ico" />
+    <Resource Include="img\ICON\773.ico" />
+    <Resource Include="img\ICON\774.ico" />
+    <Resource Include="img\ICON\775.ico" />
+    <Resource Include="img\ICON\776.ico" />
+    <Resource Include="img\ICON\777.ico" />
+    <Resource Include="img\ICON\778.ico" />
+    <Resource Include="img\ICON\779.ico" />
+    <Resource Include="img\ICON\78.ico" />
+    <Resource Include="img\ICON\780.ico" />
+    <Resource Include="img\ICON\781.ico" />
+    <Resource Include="img\ICON\782.ico" />
+    <Resource Include="img\ICON\783.ico" />
+    <Resource Include="img\ICON\784.ico" />
+    <Resource Include="img\ICON\785.ico" />
+    <Resource Include="img\ICON\786.ico" />
+    <Resource Include="img\ICON\787.ico" />
+    <Resource Include="img\ICON\788.ico" />
+    <Resource Include="img\ICON\789.ico" />
+    <Resource Include="img\ICON\79.ico" />
+    <Resource Include="img\ICON\790.ico" />
+    <Resource Include="img\ICON\791.ico" />
+    <Resource Include="img\ICON\792.ico" />
+    <Resource Include="img\ICON\793.ico" />
+    <Resource Include="img\ICON\794.ico" />
+    <Resource Include="img\ICON\795.ico" />
+    <Resource Include="img\ICON\796.ico" />
+    <Resource Include="img\ICON\797.ico" />
+    <Resource Include="img\ICON\798.ico" />
+    <Resource Include="img\ICON\799.ico" />
+    <Resource Include="img\ICON\8.ico" />
+    <Resource Include="img\ICON\80.ico" />
+    <Resource Include="img\ICON\800.ico" />
+    <Resource Include="img\ICON\801.ico" />
+    <Resource Include="img\ICON\802.ico" />
+    <Resource Include="img\ICON\803.ico" />
+    <Resource Include="img\ICON\804.ico" />
+    <Resource Include="img\ICON\805.ico" />
+    <Resource Include="img\ICON\806.ico" />
+    <Resource Include="img\ICON\807.ico" />
+    <Resource Include="img\ICON\808.ico" />
+    <Resource Include="img\ICON\809.ico" />
+    <Resource Include="img\ICON\81.ico" />
+    <Resource Include="img\ICON\810.ico" />
+    <Resource Include="img\ICON\811.ico" />
+    <Resource Include="img\ICON\812.ico" />
+    <Resource Include="img\ICON\813.ico" />
+    <Resource Include="img\ICON\814.ico" />
+    <Resource Include="img\ICON\815.ico" />
+    <Resource Include="img\ICON\816.ico" />
+    <Resource Include="img\ICON\817.ico" />
+    <Resource Include="img\ICON\818.ico" />
+    <Resource Include="img\ICON\819.ico" />
+    <Resource Include="img\ICON\82.ico" />
+    <Resource Include="img\ICON\820.ico" />
+    <Resource Include="img\ICON\821.ico" />
+    <Resource Include="img\ICON\822.ico" />
+    <Resource Include="img\ICON\823.ico" />
+    <Resource Include="img\ICON\824.ico" />
+    <Resource Include="img\ICON\825.ico" />
+    <Resource Include="img\ICON\826.ico" />
+    <Resource Include="img\ICON\827.ico" />
+    <Resource Include="img\ICON\828.ico" />
+    <Resource Include="img\ICON\829.ico" />
+    <Resource Include="img\ICON\83.ico" />
+    <Resource Include="img\ICON\830.ico" />
+    <Resource Include="img\ICON\831.ico" />
+    <Resource Include="img\ICON\832.ico" />
+    <Resource Include="img\ICON\833.ico" />
+    <Resource Include="img\ICON\834.ico" />
+    <Resource Include="img\ICON\835.ico" />
+    <Resource Include="img\ICON\836.ico" />
+    <Resource Include="img\ICON\837.ico" />
+    <Resource Include="img\ICON\838.ico" />
+    <Resource Include="img\ICON\839.ico" />
+    <Resource Include="img\ICON\84.ico" />
+    <Resource Include="img\ICON\840.ico" />
+    <Resource Include="img\ICON\841.ico" />
+    <Resource Include="img\ICON\842.ico" />
+    <Resource Include="img\ICON\843.ico" />
+    <Resource Include="img\ICON\844.ico" />
+    <Resource Include="img\ICON\845.ico" />
+    <Resource Include="img\ICON\846.ico" />
+    <Resource Include="img\ICON\847.ico" />
+    <Resource Include="img\ICON\848.ico" />
+    <Resource Include="img\ICON\849.ico" />
+    <Resource Include="img\ICON\85.ico" />
+    <Resource Include="img\ICON\850.ico" />
+    <Resource Include="img\ICON\851.ico" />
+    <Resource Include="img\ICON\852.ico" />
+    <Resource Include="img\ICON\853.ico" />
+    <Resource Include="img\ICON\854.ico" />
+    <Resource Include="img\ICON\855.ico" />
+    <Resource Include="img\ICON\856.ico" />
+    <Resource Include="img\ICON\857.ico" />
+    <Resource Include="img\ICON\858.ico" />
+    <Resource Include="img\ICON\859.ico" />
+    <Resource Include="img\ICON\86.ico" />
+    <Resource Include="img\ICON\860.ico" />
+    <Resource Include="img\ICON\861.ico" />
+    <Resource Include="img\ICON\862.ico" />
+    <Resource Include="img\ICON\863.ico" />
+    <Resource Include="img\ICON\864.ico" />
+    <Resource Include="img\ICON\865.ico" />
+    <Resource Include="img\ICON\866.ico" />
+    <Resource Include="img\ICON\867.ico" />
+    <Resource Include="img\ICON\868.ico" />
+    <Resource Include="img\ICON\869.ico" />
+    <Resource Include="img\ICON\87.ico" />
+    <Resource Include="img\ICON\870.ico" />
+    <Resource Include="img\ICON\871.ico" />
+    <Resource Include="img\ICON\872.ico" />
+    <Resource Include="img\ICON\873.ico" />
+    <Resource Include="img\ICON\874.ico" />
+    <Resource Include="img\ICON\875.ico" />
+    <Resource Include="img\ICON\876.ico" />
+    <Resource Include="img\ICON\877.ico" />
+    <Resource Include="img\ICON\878.ico" />
+    <Resource Include="img\ICON\879.ico" />
+    <Resource Include="img\ICON\88.ico" />
+    <Resource Include="img\ICON\880.ico" />
+    <Resource Include="img\ICON\881.ico" />
+    <Resource Include="img\ICON\882.ico" />
+    <Resource Include="img\ICON\883.ico" />
+    <Resource Include="img\ICON\884.ico" />
+    <Resource Include="img\ICON\885.ico" />
+    <Resource Include="img\ICON\886.ico" />
+    <Resource Include="img\ICON\887.ico" />
+    <Resource Include="img\ICON\888.ico" />
+    <Resource Include="img\ICON\889.ico" />
+    <Resource Include="img\ICON\89.ico" />
+    <Resource Include="img\ICON\890.ico" />
+    <Resource Include="img\ICON\891.ico" />
+    <Resource Include="img\ICON\892.ico" />
+    <Resource Include="img\ICON\893.ico" />
+    <Resource Include="img\ICON\894.ico" />
+    <Resource Include="img\ICON\895.ico" />
+    <Resource Include="img\ICON\896.ico" />
+    <Resource Include="img\ICON\897.ico" />
+    <Resource Include="img\ICON\898.ico" />
+    <Resource Include="img\ICON\899.ico" />
+    <Resource Include="img\ICON\9.ico" />
+    <Resource Include="img\ICON\90.ico" />
+    <Resource Include="img\ICON\900.ico" />
+    <Resource Include="img\ICON\901.ico" />
+    <Resource Include="img\ICON\902.ico" />
+    <Resource Include="img\ICON\903.ico" />
+    <Resource Include="img\ICON\904.ico" />
+    <Resource Include="img\ICON\905.ico" />
+    <Resource Include="img\ICON\906.ico" />
+    <Resource Include="img\ICON\907.ico" />
+    <Resource Include="img\ICON\908.ico" />
+    <Resource Include="img\ICON\909.ico" />
+    <Resource Include="img\ICON\91.ico" />
+    <Resource Include="img\ICON\910.ico" />
+    <Resource Include="img\ICON\911.ico" />
+    <Resource Include="img\ICON\912.ico" />
+    <Resource Include="img\ICON\913.ico" />
+    <Resource Include="img\ICON\914.ico" />
+    <Resource Include="img\ICON\915.ico" />
+    <Resource Include="img\ICON\916.ico" />
+    <Resource Include="img\ICON\917.ico" />
+    <Resource Include="img\ICON\918.ico" />
+    <Resource Include="img\ICON\919.ico" />
+    <Resource Include="img\ICON\92.ico" />
+    <Resource Include="img\ICON\920.ico" />
+    <Resource Include="img\ICON\921.ico" />
+    <Resource Include="img\ICON\922.ico" />
+    <Resource Include="img\ICON\923.ico" />
+    <Resource Include="img\ICON\924.ico" />
+    <Resource Include="img\ICON\925.ico" />
+    <Resource Include="img\ICON\926.ico" />
+    <Resource Include="img\ICON\927.ico" />
+    <Resource Include="img\ICON\928.ico" />
+    <Resource Include="img\ICON\929.ico" />
+    <Resource Include="img\ICON\93.ico" />
+    <Resource Include="img\ICON\930.ico" />
+    <Resource Include="img\ICON\931.ico" />
+    <Resource Include="img\ICON\932.ico" />
+    <Resource Include="img\ICON\933.ico" />
+    <Resource Include="img\ICON\934.ico" />
+    <Resource Include="img\ICON\935.ico" />
+    <Resource Include="img\ICON\936.ico" />
+    <Resource Include="img\ICON\937.ico" />
+    <Resource Include="img\ICON\938.ico" />
+    <Resource Include="img\ICON\939.ico" />
+    <Resource Include="img\ICON\94.ico" />
+    <Resource Include="img\ICON\940.ico" />
+    <Resource Include="img\ICON\941.ico" />
+    <Resource Include="img\ICON\942.ico" />
+    <Resource Include="img\ICON\943.ico" />
+    <Resource Include="img\ICON\944.ico" />
+    <Resource Include="img\ICON\945.ico" />
+    <Resource Include="img\ICON\946.ico" />
+    <Resource Include="img\ICON\947.ico" />
+    <Resource Include="img\ICON\948.ico" />
+    <Resource Include="img\ICON\949.ico" />
+    <Resource Include="img\ICON\95.ico" />
+    <Resource Include="img\ICON\950.ico" />
+    <Resource Include="img\ICON\951.ico" />
+    <Resource Include="img\ICON\952.ico" />
+    <Resource Include="img\ICON\953.ico" />
+    <Resource Include="img\ICON\954.ico" />
+    <Resource Include="img\ICON\955.ico" />
+    <Resource Include="img\ICON\956.ico" />
+    <Resource Include="img\ICON\957.ico" />
+    <Resource Include="img\ICON\958.ico" />
+    <Resource Include="img\ICON\959.ico" />
+    <Resource Include="img\ICON\96.ico" />
+    <Resource Include="img\ICON\960.ico" />
+    <Resource Include="img\ICON\961.ico" />
+    <Resource Include="img\ICON\962.ico" />
+    <Resource Include="img\ICON\963.ico" />
+    <Resource Include="img\ICON\964.ico" />
+    <Resource Include="img\ICON\965.ico" />
+    <Resource Include="img\ICON\966.ico" />
+    <Resource Include="img\ICON\967.ico" />
+    <Resource Include="img\ICON\968.ico" />
+    <Resource Include="img\ICON\969.ico" />
+    <Resource Include="img\ICON\97.ico" />
+    <Resource Include="img\ICON\970.ico" />
+    <Resource Include="img\ICON\971.ico" />
+    <Resource Include="img\ICON\972.ico" />
+    <Resource Include="img\ICON\973.ico" />
+    <Resource Include="img\ICON\974.ico" />
+    <Resource Include="img\ICON\975.ico" />
+    <Resource Include="img\ICON\976.ico" />
+    <Resource Include="img\ICON\977.ico" />
+    <Resource Include="img\ICON\978.ico" />
+    <Resource Include="img\ICON\979.ico" />
+    <Resource Include="img\ICON\98.ico" />
+    <Resource Include="img\ICON\980.ico" />
+    <Resource Include="img\ICON\981.ico" />
+    <Resource Include="img\ICON\982.ico" />
+    <Resource Include="img\ICON\983.ico" />
+    <Resource Include="img\ICON\984.ico" />
+    <Resource Include="img\ICON\985.ico" />
+    <Resource Include="img\ICON\986.ico" />
+    <Resource Include="img\ICON\987.ico" />
+    <Resource Include="img\ICON\988.ico" />
+    <Resource Include="img\ICON\989.ico" />
+    <Resource Include="img\ICON\99.ico" />
+    <Resource Include="img\ICON\990.ico" />
+    <Resource Include="img\ICON\991.ico" />
+    <Resource Include="img\ICON\992.ico" />
+    <Resource Include="img\ICON\993.ico" />
+    <Resource Include="img\ICON\994.ico" />
+    <Resource Include="img\ICON\995.ico" />
+    <Resource Include="img\ICON\996.ico" />
+    <Resource Include="img\ICON\997.ico" />
+    <Resource Include="img\ICON\998.ico" />
+    <Resource Include="img\ICON\999.ico" />
+    <Resource Include="filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

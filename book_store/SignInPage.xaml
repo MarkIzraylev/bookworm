@@ -1,0 +1,26 @@
+﻿<Page x:Class="book_store.SignInPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:book_store"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      FontFamily="Georgia"
+      FontSize="14"
+      Title="авторизация">
+    <Grid>
+        <Label Content="главная > авторизация" Margin="15,0" VerticalAlignment="Top" Foreground="#FF645549"/>
+
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" Width="300">
+            <Label Content="эл. почта" Margin="0,0,0,5" Foreground="#FF2B241F"/>
+            <TextBox Text="mark.izraylev.dev@gmail.com" x:Name="EmailInput" Style="{DynamicResource RoundTextBox}"/>
+            <Label Content="пароль" Margin="0,10,0,5" Foreground="#FF2B241F"/>
+            <PasswordBox Password="Hello123" x:Name="PasswordInput" Style="{DynamicResource RoundPasswordBox}"/>
+            <Grid>
+                <Button Style="{DynamicResource RoundButton}" Margin="0,25,0,0" HorizontalAlignment="Left" Padding="8,5" Content="зарегистрироваться" Foreground="#FF645549" BorderThickness="0" FontFamily="Georgia"  Background="{x:Null}" Click="Button_Click_1"/>
+                <Button Style="{DynamicResource RoundButton}" Margin="0,25,0,0" HorizontalAlignment="Right" Padding="8,5" Content="войти" Foreground="#FF2B241F" BorderBrush="#FF2B241F" FontFamily="Georgia"  Background="{x:Null}" Click="Button_Click"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>

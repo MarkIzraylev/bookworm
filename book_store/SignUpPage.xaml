@@ -1,0 +1,40 @@
+﻿<Page x:Class="book_store.SignUpPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:book_store"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SignUpPage"
+      FontFamily="Georgia"
+      FontSize="14">
+
+    <Grid>
+        <Label Content="главная > регистрация" Margin="15,0" VerticalAlignment="Top" Foreground="#FF645549"/>
+
+        <ScrollViewer VerticalAlignment="Center" HorizontalAlignment="Stretch" Height="300">
+            <StackPanel Orientation="Vertical" Width="300">
+                <Label Content="фамилия" Margin="0,0,0,5" Foreground="#FF2B241F"/>
+                <TextBox Text="" x:Name="LastNameInput" Style="{DynamicResource RoundTextBox}"/>
+                <Label Content="имя*" Margin="0,0,0,5" Foreground="#FF2B241F"/>
+                <TextBox Text="" x:Name="FirstNameInput" Style="{DynamicResource RoundTextBox}"/>
+                <Label Content="отчество" Margin="0,0,0,5" Foreground="#FF2B241F"/>
+                <TextBox Text="" x:Name="PatronymicInput" Style="{DynamicResource RoundTextBox}"/>
+                <Label Content="эл. почта*" Margin="0,0,0,5" Foreground="#FF2B241F"/>
+                <TextBox x:Name="EmailInput" Style="{DynamicResource RoundTextBox}"/>
+                <Label Content="пароль*" Margin="0,10,0,5" Foreground="#FF2B241F"/>
+                <PasswordBox Password="" x:Name="PasswordInput" Style="{DynamicResource RoundPasswordBox}"/>
+                <Label Content="дата рождения*" Margin="0,0,0,5" Foreground="#FF2B241F"/>
+                <DatePicker x:Name="DateOfBirthInput"/>
+                <Label Content="серия и номер паспорта (без пробелов)*" Margin="0,0,0,5" Foreground="#FF2B241F"/>
+                <TextBox x:Name="PassportInput" Style="{DynamicResource RoundTextBox}"/>
+                <Label Content="номер телефона*" Margin="0,0,0,5" Foreground="#FF2B241F"/>
+                <TextBox x:Name="PhoneInput" Style="{DynamicResource RoundTextBox}"/>
+                <Grid>
+                    <Button x:Name="SignUpButton" Style="{DynamicResource RoundButton}" Margin="0,25,0,0" HorizontalAlignment="Right" Padding="8,5" Content="зарегистрироваться" Foreground="#FF2B241F" BorderBrush="#FF2B241F" FontFamily="Georgia"  Background="{x:Null}" Click="SignUpButton_Click"/>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

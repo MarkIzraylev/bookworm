@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e71fef8999f9484ca02a8499f9bd4853" Name="Diagram1" ZoomLevel="133">
+        <EntityTypeShape EntityType="user83_dbModel.bs_author" Width="1.5" PointX="0.75" PointY="5.875" />
+        <EntityTypeShape EntityType="user83_dbModel.bs_edition" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="user83_dbModel.bs_order" Width="1.5" PointX="3" PointY="16.5" />
+        <EntityTypeShape EntityType="user83_dbModel.bs_order_status" Width="1.5" PointX="0.75" PointY="16.625" />
+        <EntityTypeShape EntityType="user83_dbModel.bs_publisher" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="user83_dbModel.bs_release_form" Width="1.5" PointX="0.75" PointY="9" />
+        <EntityTypeShape EntityType="user83_dbModel.bs_role" Width="1.5" PointX="0.75" PointY="12.875" />
+        <EntityTypeShape EntityType="user83_dbModel.bs_user" Width="1.5" PointX="3" PointY="11.625" />
+        <EntityTypeShape EntityType="user83_dbModel.bs_user_edition" Width="1.5" PointX="5.25" PointY="1.125" />
+        <AssociationConnector Association="user83_dbModel.FK_bs_edition_bs_author" />
+        <AssociationConnector Association="user83_dbModel.FK_bs_edition_bs_publisher" />
+        <AssociationConnector Association="user83_dbModel.FK_bs_edition_bs_release_form" />
+        <AssociationConnector Association="user83_dbModel.FK_bs_user_edition_bs_edition" />
+        <AssociationConnector Association="user83_dbModel.FK_bs_order_bs_order_status" />
+        <AssociationConnector Association="user83_dbModel.FK_bs_user_edition_bs_order" />
+        <AssociationConnector Association="user83_dbModel.FK_bs_user_bs_role" />
+        <AssociationConnector Association="user83_dbModel.FK_bs_user_edition_bs_user" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

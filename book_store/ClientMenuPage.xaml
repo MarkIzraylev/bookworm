@@ -1,0 +1,30 @@
+﻿<Page x:Class="book_store.ClientMenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:book_store"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ClientMenuPage">
+
+    <Menu VerticalAlignment="Top" Background="Transparent">
+        <MenuItem x:Name="SearchMenuItem" Header="поиск" Style="{DynamicResource RoundMenuItem}" Click="SearchMenuItem_Click"/>
+        <MenuItem x:Name="ShelfMenuItem" Header="полка" Style="{DynamicResource RoundMenuItem}" Margin="10,0,0,0" Click="ShelfMenuItem_Click">
+            <!--<MenuItem Header="читать позже" VerticalContentAlignment="Center" Style="{DynamicResource RoundMenuItem}"></MenuItem>
+            <MenuItem Header="начатое" VerticalContentAlignment="Center" Style="{DynamicResource RoundMenuItem}"></MenuItem>
+            <MenuItem Header="прочитанное" VerticalContentAlignment="Center" Style="{DynamicResource RoundMenuItem}"/>-->
+        </MenuItem>
+        <MenuItem x:Name="PurchasesMenuItem" Header="покупки" Style="{DynamicResource RoundMenuItem}" Margin="10,0,0,0">
+            <MenuItem x:Name="CartMenuSubItem" Header="корзина" VerticalContentAlignment="Center" Style="{DynamicResource RoundMenuItem}" Click="CartMenuSubItem_Click"></MenuItem>
+            <MenuItem Header="заказы" Style="{DynamicResource RoundMenuItem}">
+                <MenuItem x:Name="ActiveMenuSubItem" Header="активные" Style="{DynamicResource RoundMenuItem}" Click="ActiveMenuSubItem_Click"></MenuItem>
+                <MenuItem x:Name="FinishedMenuSubItem" Header="завершённые" Style="{DynamicResource RoundMenuItem}" Click="FinishedMenuSubItem_Click"></MenuItem>
+            </MenuItem>
+        </MenuItem>
+        <MenuItem Header="профиль" Style="{DynamicResource RoundMenuItem}" Margin="10,0,0,0">
+            <!--<MenuItem Header="данные" VerticalContentAlignment="Center" Style="{DynamicResource RoundMenuItem}"></MenuItem>-->
+            <MenuItem x:Name="LogOut" Header="выйти" Style="{DynamicResource RoundMenuItem}" Click="LogOut_Click"></MenuItem>
+        </MenuItem>
+    </Menu>
+</Page>

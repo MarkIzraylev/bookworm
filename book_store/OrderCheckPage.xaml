@@ -1,0 +1,53 @@
+﻿<Page x:Class="book_store.OrderCheckPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:book_store"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      FontFamily="Georgia"
+      FontSize="14"
+      Title="OrderCheckPage">
+
+    <Grid>
+        <Label x:Name="PageLabel" Content="заказы" Margin="15,0" VerticalAlignment="Top" Foreground="#FF645549"/>
+        <DockPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="50">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" Height="30" Margin="0,0,0,10">
+                    <ComboBox x:Name="ClientFullName" Width="175" SelectionChanged="ClientFullName_SelectionChanged">
+                        
+                    </ComboBox>
+                    <Button x:Name="ReadOrderButton" Content="посмотреть заказ" Click="ReadOrderButton_Click" IsEnabled="False"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="30">
+                    <Label Content="Статус заказа:" Width="120" Foreground="#FF645549"/>
+                    <ComboBox x:Name="Status" Width="100" IsEnabled="False">
+                        <ComboBoxItem Tag="1" Content="создан"/>
+                        <ComboBoxItem Tag="2" Content="в процессе сборки"/>
+                        <ComboBoxItem Tag="3" Content="доставляется в ПВЗ"/>
+                        <ComboBoxItem Tag="4" Content="готов к получению"/>
+                        <ComboBoxItem Tag="5" Content="получен"/>
+                        <ComboBoxItem Tag="6" Content="отменён"/>
+                    </ComboBox>
+                    <Button x:Name="SaveStatusButton" Content="сохранить" IsEnabled="False" Click="SaveStatusButton_Click"/>
+                </StackPanel>
+
+                <!--<ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Height="*">
+                    <ListView x:Name="BookListView" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <local:BookCard/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollViewer>-->
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Page>

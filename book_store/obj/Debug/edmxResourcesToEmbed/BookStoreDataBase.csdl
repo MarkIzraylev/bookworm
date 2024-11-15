@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="user83_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="user83_dbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="bs_author" EntityType="user83_dbModel.bs_author" />
+    <EntitySet Name="bs_edition" EntityType="user83_dbModel.bs_edition" />
+    <EntitySet Name="bs_order" EntityType="user83_dbModel.bs_order" />
+    <EntitySet Name="bs_order_status" EntityType="user83_dbModel.bs_order_status" />
+    <EntitySet Name="bs_publisher" EntityType="user83_dbModel.bs_publisher" />
+    <EntitySet Name="bs_release_form" EntityType="user83_dbModel.bs_release_form" />
+    <EntitySet Name="bs_role" EntityType="user83_dbModel.bs_role" />
+    <EntitySet Name="bs_user" EntityType="user83_dbModel.bs_user" />
+    <EntitySet Name="bs_user_edition" EntityType="user83_dbModel.bs_user_edition" />
+    <AssociationSet Name="FK_bs_edition_bs_author" Association="user83_dbModel.FK_bs_edition_bs_author">
+      <End Role="bs_author" EntitySet="bs_author" />
+      <End Role="bs_edition" EntitySet="bs_edition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bs_edition_bs_publisher" Association="user83_dbModel.FK_bs_edition_bs_publisher">
+      <End Role="bs_publisher" EntitySet="bs_publisher" />
+      <End Role="bs_edition" EntitySet="bs_edition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bs_edition_bs_release_form" Association="user83_dbModel.FK_bs_edition_bs_release_form">
+      <End Role="bs_release_form" EntitySet="bs_release_form" />
+      <End Role="bs_edition" EntitySet="bs_edition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bs_user_edition_bs_edition" Association="user83_dbModel.FK_bs_user_edition_bs_edition">
+      <End Role="bs_edition" EntitySet="bs_edition" />
+      <End Role="bs_user_edition" EntitySet="bs_user_edition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bs_order_bs_order_status" Association="user83_dbModel.FK_bs_order_bs_order_status">
+      <End Role="bs_order_status" EntitySet="bs_order_status" />
+      <End Role="bs_order" EntitySet="bs_order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bs_user_edition_bs_order" Association="user83_dbModel.FK_bs_user_edition_bs_order">
+      <End Role="bs_order" EntitySet="bs_order" />
+      <End Role="bs_user_edition" EntitySet="bs_user_edition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bs_user_bs_role" Association="user83_dbModel.FK_bs_user_bs_role">
+      <End Role="bs_role" EntitySet="bs_role" />
+      <End Role="bs_user" EntitySet="bs_user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bs_user_edition_bs_user" Association="user83_dbModel.FK_bs_user_edition_bs_user">
+      <End Role="bs_user" EntitySet="bs_user" />
+      <End Role="bs_user_edition" EntitySet="bs_user_edition" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="bs_author">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="first_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="photo" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bs_edition" Relationship="user83_dbModel.FK_bs_edition_bs_author" FromRole="bs_author" ToRole="bs_edition" />
+  </EntityType>
+  <EntityType Name="bs_edition">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="id_publisher" Type="Int32" Nullable="false" />
+    <Property Name="id_author" Type="Int32" Nullable="false" />
+    <Property Name="id_release_form" Type="Int32" Nullable="false" />
+    <Property Name="release_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="text" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="cover" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bs_author" Relationship="user83_dbModel.FK_bs_edition_bs_author" FromRole="bs_edition" ToRole="bs_author" />
+    <NavigationProperty Name="bs_publisher" Relationship="user83_dbModel.FK_bs_edition_bs_publisher" FromRole="bs_edition" ToRole="bs_publisher" />
+    <NavigationProperty Name="bs_release_form" Relationship="user83_dbModel.FK_bs_edition_bs_release_form" FromRole="bs_edition" ToRole="bs_release_form" />
+    <NavigationProperty Name="bs_user_edition" Relationship="user83_dbModel.FK_bs_user_edition_bs_edition" FromRole="bs_edition" ToRole="bs_user_edition" />
+    <Property Name="rating" Type="Decimal" Precision="2" Scale="1" />
+  </EntityType>
+  <EntityType Name="bs_order">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="order_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="id_order_status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="bs_order_status" Relationship="user83_dbModel.FK_bs_order_bs_order_status" FromRole="bs_order" ToRole="bs_order_status" />
+    <NavigationProperty Name="bs_user_edition" Relationship="user83_dbModel.FK_bs_user_edition_bs_order" FromRole="bs_order" ToRole="bs_user_edition" />
+  </EntityType>
+  <EntityType Name="bs_order_status">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bs_order" Relationship="user83_dbModel.FK_bs_order_bs_order_status" FromRole="bs_order_status" ToRole="bs_order" />
+  </EntityType>
+  <EntityType Name="bs_publisher">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bs_edition" Relationship="user83_dbModel.FK_bs_edition_bs_publisher" FromRole="bs_publisher" ToRole="bs_edition" />
+  </EntityType>
+  <EntityType Name="bs_release_form">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bs_edition" Relationship="user83_dbModel.FK_bs_edition_bs_release_form" FromRole="bs_release_form" ToRole="bs_edition" />
+  </EntityType>
+  <EntityType Name="bs_role">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bs_user" Relationship="user83_dbModel.FK_bs_user_bs_role" FromRole="bs_role" ToRole="bs_user" />
+  </EntityType>
+  <EntityType Name="bs_user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="first_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_role" Type="Int32" Nullable="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sign_up_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="date_of_birth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="passport" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="font_size" Type="Int32" />
+    <Property Name="font_color" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="background_color" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bs_role" Relationship="user83_dbModel.FK_bs_user_bs_role" FromRole="bs_user" ToRole="bs_role" />
+    <NavigationProperty Name="bs_user_edition" Relationship="user83_dbModel.FK_bs_user_edition_bs_user" FromRole="bs_user" ToRole="bs_user_edition" />
+  </EntityType>
+  <EntityType Name="bs_user_edition">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_user" Type="Int32" Nullable="false" />
+    <Property Name="id_order" Type="Int32" />
+    <Property Name="id_edition" Type="Int32" Nullable="false" />
+    <Property Name="current_page" Type="Int32" />
+    <Property Name="is_on_bookshelf" Type="Boolean" Nullable="false" />
+    <Property Name="quantity" Type="Int32" />
+    <Property Name="review" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="mark" Type="Int32" />
+    <NavigationProperty Name="bs_edition" Relationship="user83_dbModel.FK_bs_user_edition_bs_edition" FromRole="bs_user_edition" ToRole="bs_edition" />
+    <NavigationProperty Name="bs_order" Relationship="user83_dbModel.FK_bs_user_edition_bs_order" FromRole="bs_user_edition" ToRole="bs_order" />
+    <NavigationProperty Name="bs_user" Relationship="user83_dbModel.FK_bs_user_edition_bs_user" FromRole="bs_user_edition" ToRole="bs_user" />
+  </EntityType>
+  <Association Name="FK_bs_edition_bs_author">
+    <End Type="user83_dbModel.bs_author" Role="bs_author" Multiplicity="1" />
+    <End Type="user83_dbModel.bs_edition" Role="bs_edition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bs_author">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="bs_edition">
+        <PropertyRef Name="id_author" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bs_edition_bs_publisher">
+    <End Type="user83_dbModel.bs_publisher" Role="bs_publisher" Multiplicity="1" />
+    <End Type="user83_dbModel.bs_edition" Role="bs_edition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bs_publisher">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="bs_edition">
+        <PropertyRef Name="id_publisher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bs_edition_bs_release_form">
+    <End Type="user83_dbModel.bs_release_form" Role="bs_release_form" Multiplicity="1" />
+    <End Type="user83_dbModel.bs_edition" Role="bs_edition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bs_release_form">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="bs_edition">
+        <PropertyRef Name="id_release_form" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bs_user_edition_bs_edition">
+    <End Type="user83_dbModel.bs_edition" Role="bs_edition" Multiplicity="1" />
+    <End Type="user83_dbModel.bs_user_edition" Role="bs_user_edition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bs_edition">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="bs_user_edition">
+        <PropertyRef Name="id_edition" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bs_order_bs_order_status">
+    <End Type="user83_dbModel.bs_order_status" Role="bs_order_status" Multiplicity="1" />
+    <End Type="user83_dbModel.bs_order" Role="bs_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bs_order_status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="bs_order">
+        <PropertyRef Name="id_order_status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bs_user_edition_bs_order">
+    <End Type="user83_dbModel.bs_order" Role="bs_order" Multiplicity="0..1" />
+    <End Type="user83_dbModel.bs_user_edition" Role="bs_user_edition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bs_order">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="bs_user_edition">
+        <PropertyRef Name="id_order" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bs_user_bs_role">
+    <End Type="user83_dbModel.bs_role" Role="bs_role" Multiplicity="1" />
+    <End Type="user83_dbModel.bs_user" Role="bs_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bs_role">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="bs_user">
+        <PropertyRef Name="id_role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bs_user_edition_bs_user">
+    <End Type="user83_dbModel.bs_user" Role="bs_user" Multiplicity="1" />
+    <End Type="user83_dbModel.bs_user_edition" Role="bs_user_edition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bs_user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="bs_user_edition">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
